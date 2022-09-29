@@ -5,10 +5,6 @@
  */
 package vista;
 
-/**
- *
- * @author LUIS
- */
-public class omitir1 {
-    
+public class omitir2 {
+   
 }

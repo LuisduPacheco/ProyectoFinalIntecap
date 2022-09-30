@@ -12,6 +12,6 @@ public class MaVistaComprarProductos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ma_vista_comprar_productos);
-        
+
     }
 }

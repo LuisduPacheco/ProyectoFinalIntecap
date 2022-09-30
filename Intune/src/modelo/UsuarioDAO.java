@@ -26,7 +26,7 @@ public class UsuarioDAO implements ConsultasUsuario{
                                         u.getIdTipoUsuario()+")";
         c.consultasMultiples(query);
         }catch (Exception e){
-            System.err.println("Error(InsertMarca):"+e.getMessage());
+            System.err.println("Error(InsertUsuario):"+e.getMessage());
             c.desconectar();
             return false;
         }
@@ -42,7 +42,7 @@ public class UsuarioDAO implements ConsultasUsuario{
             c.conectar();
             String query="SELECT id_usuario,"+
                          "nombre_usuario,"+
-                         "apelllido_usuario,"+
+                         "apellido_usuario,"+
                          "codigo_usuario,"+
                          "clave_usuario,"+
                          "estado_usuario, "+
@@ -61,7 +61,7 @@ public class UsuarioDAO implements ConsultasUsuario{
                 info.add(uvo);
             }
         }catch (Exception e){
-            System.err.println("Error(MostrarMarca): "+e.getMessage());
+            System.err.println("Error(MostrarUsuario): "+e.getMessage());
             c.desconectar();
         }
         return info;
@@ -69,11 +69,38 @@ public class UsuarioDAO implements ConsultasUsuario{
 
     @Override
     public boolean actualizarUsuario(UsuarioVO u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        Conector c = new Conector();
+        try{
+            c.conectar();
+            String query="UPDATE usuario "+
+                        "set nombre_usuario= '"+u.getNombreUsuario()+"',"+
+                        "apellido_usuario= '"+u.getApellidoUsuario()+"',"+
+                        "codigo_usuario= '"+u.getCodigoUsuario()+"',"+
+                        "clave_usuario= '"+u.getClaveUsuario()+"',"+
+                        "estado_usuario= "+u.getEstadoUsuario()+","+
+                        "id_tipo_usuario_fk= "+u.getIdTipoUsuario()+ " "+
+                        "WHERE id_usuario= "+u.getIdUsuario();
+            c.consultasMultiples(query);
+        }catch (Exception e){
+            System.out.println("Error(ActualizarUsuario"+e.getMessage());
+            c.desconectar();
+        }
+        c.desconectar();
+        return true;
+     }
 
     @Override
     public boolean eliminarUsuario(UsuarioVO u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Conector c=new Conector();
+        try{
+            c.conectar();
+            String query="DELETE from usuario where id_usuario="+u.getIdUsuario();
+            c.consultasMultiples(query);
+        }catch (Exception e){
+            System.out.println("Error (EliminarUsuario"+e.getMessage());
+            c.desconectar();
+        }
+        c.desconectar();
+        return true;
     }
 }

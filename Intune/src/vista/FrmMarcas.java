@@ -32,18 +32,18 @@ public class FrmMarcas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtNombreM = new javax.swing.JTextField();
+        txtEstadoM = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnIngresarM = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnActualizarM = new javax.swing.JButton();
+        btnEliminarM = new javax.swing.JButton();
+        btnSalirM = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         DefaultTableModel dtmM = new DefaultTableModel();
-        jTable1 = new javax.swing.JTable();
+        tblMarcas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,9 +53,9 @@ public class FrmMarcas extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Estado marca:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtNombreMActionPerformed(evt);
             }
         });
 
@@ -70,8 +70,8 @@ public class FrmMarcas extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreM)
+                    .addComponent(txtEstadoM, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16))
         );
         jPanel1Layout.setVerticalGroup(
@@ -80,21 +80,21 @@ public class FrmMarcas extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEstadoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnIngresarM.setText("Ingresar");
 
-        jButton2.setText("Actualizar");
+        btnActualizarM.setText("Actualizar");
 
-        jButton3.setText("Eliminar");
+        btnEliminarM.setText("Eliminar");
 
-        jButton4.setText("Salir");
+        btnSalirM.setText("Salir");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -103,10 +103,10 @@ public class FrmMarcas extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnActualizarM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnIngresarM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnEliminarM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSalirM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -115,18 +115,18 @@ public class FrmMarcas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnIngresarM)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(btnActualizarM)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(btnEliminarM)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(btnSalirM)
                 .addContainerGap())
         );
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Llene los campos solicitados:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblMarcas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -134,7 +134,7 @@ public class FrmMarcas extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblMarcas);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -189,9 +189,9 @@ public class FrmMarcas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtNombreMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreMActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtNombreMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,10 +229,10 @@ public class FrmMarcas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnActualizarM;
+    public javax.swing.JButton btnEliminarM;
     public javax.swing.JButton btnIngresarM;
-    public javax.swing.JButton jButton2;
-    public javax.swing.JButton jButton3;
-    public javax.swing.JButton jButton4;
+    public javax.swing.JButton btnSalirM;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -240,8 +240,8 @@ public class FrmMarcas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable jTable1;
-    public javax.swing.JTextField jTextField1;
-    public javax.swing.JTextField jTextField2;
+    public javax.swing.JTable tblMarcas;
+    public javax.swing.JTextField txtEstadoM;
+    public javax.swing.JTextField txtNombreM;
     // End of variables declaration//GEN-END:variables
 }

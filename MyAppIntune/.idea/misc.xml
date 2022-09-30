@@ -3,9 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/Users/LUIS/Desktop/SEMESTRES 2022/INTECAP/PROYECTO FINAL/Proyecto Intune/MyAppIntune/app/src/main/res/layout/activity_main.xml" value="0.2758152173913043" />
         <entry key="..\:/Users/LUIS/Desktop/SEMESTRES 2022/INTECAP/PROYECTO FINAL/Proyecto Intune/MyAppIntune/app/src/main/res/layout/activity_maver_productos.xml" value="0.2563176895306859" />
+=======
+        <entry key="..\:/Users/USUARIO/Desktop/Proyecto Intune/ProyectoFinalIntecap/MyAppIntune/app/src/main/res/layout/activity_ma_vista_comprar_productos.xml" value="0.3482789855072464" />
+        <entry key="..\:/Users/USUARIO/Desktop/Proyecto Intune/ProyectoFinalIntecap/MyAppIntune/app/src/main/res/layout/activity_main.xml" value="0.3482789855072464" />
+        <entry key="..\:/Users/USUARIO/Desktop/Proyecto Intune/ProyectoFinalIntecap/MyAppIntune/app/src/main/res/layout/item_comprar_productos.xml" value="0.2626366120218579" />
+        <entry key="..\:/Users/USUARIO/Desktop/Proyecto Intune/ProyectoFinalIntecap/MyAppIntune/app/src/main/res/layout/toolbar_comprar_productos.xml" value="0.3482789855072464" />
+        <entry key="..\:/Users/USUARIO/Desktop/Proyecto Intune/ProyectoFinalIntecap/MyAppIntune/app/src/main/res/menu/menu_item_comprar_productos.xml" value="0.30085470085470084" />
+>>>>>>> 2f54280246a6f76e595f0a11219afe0d5962adfe
         <entry key="..\:/Users/peace/AndroidStudioProjects/MyAppIntune/app/src/main/res/layout/activity_main.xml" value="0.11" />
+        <entry key="..\:/Users/peace/Desktop/cambiosproyectofiinal/ProyectoFinalIntecap/MyAppIntune/app/src/main/res/layout/activity_macarrito.xml" value="0.1" />
+        <entry key="..\:/Users/peace/Desktop/cambiosproyectofiinal/ProyectoFinalIntecap/MyAppIntune/app/src/main/res/layout/activity_main.xml" value="0.19254658385093168" />
       </map>
     </option>
   </component>

@@ -14,7 +14,15 @@
         android:theme="@style/Theme.MyAppIntune"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
             android:name=".MAVerProductos"
+=======
+<<<<<<< HEAD
+            android:name=".MACarrito"
+=======
+            android:name=".MaVistaComprarProductos"
+>>>>>>> b937f17daca172c72bee9935cfcced02b5af5815
+>>>>>>> 2f54280246a6f76e595f0a11219afe0d5962adfe
             android:exported="false" />
         <activity
             android:name=".MainActivity"

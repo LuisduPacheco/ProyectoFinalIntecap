@@ -5,6 +5,8 @@
  */
 package vista;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author LUIS
@@ -40,6 +42,7 @@ public class FrmProductos extends javax.swing.JFrame {
         txtEstadoP = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
+        DefaultTableModel dtm = new DefaultTableModel();
         tblProductos = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         btnIngresarP = new javax.swing.JButton();
@@ -48,7 +51,7 @@ public class FrmProductos extends javax.swing.JFrame {
         btnSalirP = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Marca:");

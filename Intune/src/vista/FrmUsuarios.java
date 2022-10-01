@@ -31,6 +31,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jopMensajeU = new javax.swing.JOptionPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -312,6 +313,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    public javax.swing.JOptionPane jopMensajeU;
     public javax.swing.JTable tblUsuarios;
     public javax.swing.JTextField txtApellidoU;
     public javax.swing.JTextField txtEstadoU;

@@ -29,6 +29,7 @@ public class FrmMarcas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jopMensajeM = new javax.swing.JOptionPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -240,6 +241,7 @@ public class FrmMarcas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JOptionPane jopMensajeM;
     public javax.swing.JTable tblMarcas;
     public javax.swing.JTextField txtEstadoM;
     public javax.swing.JTextField txtNombreM;

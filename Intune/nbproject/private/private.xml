@@ -3,22 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/vista/FrmLogin.java</file>
+            <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/vista/FrmProductos.java</file>
             <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/conexion/Conector.java</file>
             <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/intune/Intune.java</file>
+            <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/vista/FrmUsuarios.java</file>
             <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/modelo/UsuarioDAO.java</file>
             <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/controlador/ControlLogin.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/modelo/MarcaDAO.java</file>
-            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/vista/FrmProductos.java</file>
-            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/modelo/ProductoDAO.java</file>
-=======
-            <file>file:/C:/Users/USUARIO/Desktop/Proyecto%20Intune/ProyectoFinalIntecap/Intune/src/modelo/MarcaDAO.java</file>
-            <file>file:/C:/Users/USUARIO/Desktop/Proyecto%20Intune/ProyectoFinalIntecap/Intune/src/modelo/MarcaVO.java</file>
->>>>>>> 8fe1144f260ceb4e4fa6bcc950a032d9bb6dcad6
->>>>>>> 24038ada5b3d1b3591144538b4ac45cdfb0c9df6
+            <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/vista/FrmMarcas.java</file>
         </group>
     </open-files>
 </project-private>

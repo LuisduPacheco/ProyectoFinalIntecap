@@ -54,8 +54,9 @@ public class ControladorProducto implements ActionListener, MouseListener {
     }
     
     public void limpliarRegistro(){ 
-        vProd.txtMarcaP.setText("");
+        vProd.txtIdProducto.setText("");
         vProd.txtDescripP.setText("");
+        vProd.txtMarcaP.setText("");
         vProd.txtCantidadP.setText("");
         vProd.txtPrecioP.setText("");
         vProd.txtEstadoP.setText("");
@@ -78,14 +79,16 @@ public class ControladorProducto implements ActionListener, MouseListener {
     }
     
     public void modificarRegistro(){
+        pVO.setIdProducto(Integer.parseInt(vProd.txtIdProducto.getText()));
         pVO.setDescripcionProducto(vProd.txtDescripP.getText());
         pVO.setCantidadProducto(Integer.parseInt(vProd.txtCantidadP.getText()));
         pVO.setPrecioProducto(Double.parseDouble(vProd.txtPrecioP.getText()));
         pVO.setEstadoProducto(Integer.parseInt(vProd.txtEstadoP.getText()));
         pVO.setIdMarca(Integer.parseInt(vProd.txtMarcaP.getText()));
+        
         boolean respuesta = pDAO.actualizarProducto(pVO);
         if (respuesta=false){
-            JOptionPane.showInputDialog(null,"Error al Modificar Producto");
+            JOptionPane.showMessageDialog(null,"Error al Modificar Producto");
             limpliarRegistro();
             LlenarTabla(vProd.tblProductos);
         }
@@ -95,7 +98,7 @@ public class ControladorProducto implements ActionListener, MouseListener {
         pVO.setIdProducto(Integer.parseInt(vProd.txtIdProducto.getText()));
         boolean respuesta=pDAO.eliminarProducto(pVO);
         if(respuesta=false){
-            JOptionPane.showInputDialog(null,"Error al Eliminar Producto");
+            JOptionPane.showMessageDialog(null,"Error al Eliminar Producto");
             limpliarRegistro();
             LlenarTabla(vProd.tblProductos);
         }
@@ -103,31 +106,53 @@ public class ControladorProducto implements ActionListener, MouseListener {
     }
     
     public void mostrarRegistro(){
-        System.out.println("Iniciando");
         pVO.setIdProducto(Integer.parseInt(vProd.txtIdProducto.getText()));
         pVO=pDAO.mostrarProducto(pVO);
         vProd.txtDescripP.setText(pVO.getDescripcionProducto());
         vProd.txtCantidadP.setText(String.valueOf(pVO.getCantidadProducto()));
         vProd.txtPrecioP.setText(String.valueOf(pVO.getPrecioProducto()));
         vProd.txtEstadoP.setText(String.valueOf(pVO.getEstadoProducto()));
-         //      vProd.txtMarcaP.setText(pVO.getIdMarca());
-        vProd.txtMarcaP.requestFocus();
-        
+        vProd.txtMarcaP.setText(String.valueOf(pVO.getIdMarca()));
+        vProd.txtMarcaP.requestFocus();     
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==vProd.btnIngresarP){
-            insertarRegistro();
+              
+            if (!vProd.txtDescripP.getText().equals("") && 
+                !vProd.txtMarcaP.getText().equals("") &&
+                !vProd.txtCantidadP.getText().equals("") &&
+                !vProd.txtEstadoP.getText().equals("")  ){
+                    insertarRegistro();
+                    LlenarTabla(vProd.tblProductos);
+                    limpliarRegistro();    
+            }else {
+              JOptionPane.showMessageDialog(null,"Ingresar informacion en todos los campos");
+            }
+             
         }
         if (e.getSource()==vProd.btnActualizarP){
-            modificarRegistro();
+            if (!vProd.txtDescripP.getText().equals("") && 
+                !vProd.txtMarcaP.getText().equals("") &&
+                !vProd.txtCantidadP.getText().equals("") &&
+                !vProd.txtEstadoP.getText().equals("")  ){
+                    modificarRegistro();
+                    LlenarTabla(vProd.tblProductos);
+                    limpliarRegistro();    
+            }else {
+              JOptionPane.showMessageDialog(null,"Ingresar informacion en todos los campos");
+            }
+            
+            
         }
         if (e.getSource()==vProd.btnEliminarP){
             eliminarRegistro();
+            LlenarTabla(vProd.tblProductos);
+            limpliarRegistro();    
         }
  //     if (e.getSource()==vProd.btnConsulrarP){
- //         consultarRegistro();
+ //         mostrarRegistro();
  //     }
         if (e.getSource()==vProd.btnSalirP){
             System.out.println("Ups no se salio");
@@ -140,10 +165,10 @@ public class ControladorProducto implements ActionListener, MouseListener {
         if(e.getSource()==vProd.tblProductos){
             vProd.txtIdProducto.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),0).toString());
             vProd.txtDescripP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),1).toString());
-            vProd.txtCantidadP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),2).toString());
-            vProd.txtPrecioP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),3).toString());
-            vProd.txtEstadoP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),4).toString());
-            vProd.txtMarcaP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),5).toString());
+            vProd.txtMarcaP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),2).toString());
+            vProd.txtCantidadP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),3).toString());
+            vProd.txtPrecioP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),4).toString());
+            vProd.txtEstadoP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),5).toString()); 
             
         }
     }

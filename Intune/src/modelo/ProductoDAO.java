@@ -74,7 +74,7 @@ public class ProductoDAO implements ConsultasProducto{
                     "cantidad_producto= "+p.getCantidadProducto()+","+
                     "precio_producto= "+p.getPrecioProducto()+","+
                     "estado_producto= "+p.getEstadoProducto()+","+
-                    "id_marca_fk= "+p.getIdMarca()+
+                    "id_marca_fk= "+p.getIdMarca()+" "+
                     "WHERE id_producto= "+p.getIdProducto();
             c.consultasMultiples(query);
         }catch (Exception e){

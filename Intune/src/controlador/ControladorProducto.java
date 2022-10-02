@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -12,7 +14,7 @@ import modelo.ProductoDAO;
 import modelo.ProductoVO; 
 import vista.FrmProductos;
 
-public class ControladorProducto implements ActionListener, MouseListener {
+public class ControladorProducto implements ActionListener, MouseListener,WindowListener {
     FrmProductos vProd = new FrmProductos();
     ProductoDAO pDAO = new ProductoDAO();
     ProductoVO pVO = new ProductoVO();
@@ -59,12 +61,13 @@ public class ControladorProducto implements ActionListener, MouseListener {
         vProd.txtMarcaP.requestFocus();
     }
     
-    public void insertaRegistro(){
- //       pVO.setIdMarca(vProd.txtMarcaP.getText());
+    public void insertarRegistro(){
+
         pVO.setDescripcionProducto(vProd.txtDescripP.getText());
         pVO.setCantidadProducto(Integer.parseInt(vProd.txtCantidadP.getText()));
         pVO.setPrecioProducto(Double.parseDouble(vProd.txtPrecioP.getText()));
         pVO.setEstadoProducto(Integer.parseInt(vProd.txtEstadoP.getText()));
+        pVO.setIdMarca(Integer.parseInt(vProd.txtMarcaP.getText()));
         boolean respuesta = pDAO.insertarProducto(pVO);
         if (respuesta=false){
             JOptionPane.showMessageDialog(null,"Error al Insertar Producto");
@@ -74,11 +77,11 @@ public class ControladorProducto implements ActionListener, MouseListener {
     }
     
     public void modificarRegistro(){
-//        pVO.setIdMarca(vProd.txtMarcaP.getText());
         pVO.setDescripcionProducto(vProd.txtDescripP.getText());
         pVO.setCantidadProducto(Integer.parseInt(vProd.txtCantidadP.getText()));
         pVO.setPrecioProducto(Double.parseDouble(vProd.txtPrecioP.getText()));
         pVO.setEstadoProducto(Integer.parseInt(vProd.txtEstadoP.getText()));
+        pVO.setIdMarca(Integer.parseInt(vProd.txtMarcaP.getText()));
         boolean respuesta = pDAO.actualizarProducto(pVO);
         if (respuesta=false){
             JOptionPane.showInputDialog(null,"Error al Modificar Producto");
@@ -88,24 +91,59 @@ public class ControladorProducto implements ActionListener, MouseListener {
     }
     
     public void eliminarRegistro(){
- //       pVO.setIdProducto(Integer.parseInt(vProd.txtIdProducto.getText()));
+        pVO.setIdProducto(Integer.parseInt(vProd.txtIdProducto.getText()));
         boolean respuesta=pDAO.eliminarProducto(pVO);
         if(respuesta=false){
             JOptionPane.showInputDialog(null,"Error al Eliminar Producto");
             limpliarRegistro();
             LlenarTabla(vProd.tblProductos);
         }
+     
+    }
+    
+    public void mostrarRegistro(){
+        System.out.println("Iniciando");
+        pVO.setIdProducto(Integer.parseInt(vProd.txtIdProducto.getText()));
+        pVO=pDAO.mostrarProducto(pVO);
+        vProd.txtDescripP.setText(pVO.getDescripcionProducto());
+        vProd.txtCantidadP.setText(String.valueOf(pVO.getCantidadProducto()));
+        vProd.txtPrecioP.setText(String.valueOf(pVO.getPrecioProducto()));
+        vProd.txtEstadoP.setText(String.valueOf(pVO.getEstadoProducto()));
+         //      vProd.txtMarcaP.setText(pVO.getIdMarca());
+        vProd.txtMarcaP.requestFocus();
         
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (e.getSource()==vProd.btnIngresarP){
+            insertarRegistro();
+        }
+        if (e.getSource()==vProd.btnActualizarP){
+            modificarRegistro();
+        }
+        if (e.getSource()==vProd.btnEliminarP){
+            eliminarRegistro();
+        }
+ //     if (e.getSource()==vProd.btnConsulrarP){
+ //         consultarRegistro();
+ //     }
+        if (e.getSource()==vProd.btnSalirP){
+            vProd.dispose();
+        }
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(e.getSource()==vProd.tblProductos){
+            vProd.txtIdProducto.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),0).toString());
+            vProd.txtDescripP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),1).toString());
+            vProd.txtCantidadP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),2).toString());
+            vProd.txtPrecioP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),3).toString());
+            vProd.txtEstadoP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),4).toString());
+            vProd.txtMarcaP.setText(vProd.tblProductos.getValueAt(vProd.tblProductos.getSelectedRow(),5).toString());
+            
+        }
     }
 
     @Override
@@ -125,6 +163,41 @@ public class ControladorProducto implements ActionListener, MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+       this.mostrarRegistro();
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

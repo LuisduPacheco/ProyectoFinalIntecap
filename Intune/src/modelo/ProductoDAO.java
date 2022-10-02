@@ -74,7 +74,8 @@ public class ProductoDAO implements ConsultasProducto{
                     "cantidad_producto= "+p.getCantidadProducto()+","+
                     "precio_producto= "+p.getPrecioProducto()+","+
                     "estado_producto= "+p.getEstadoProducto()+","+
-                    "id_marca_fk= "+p.getIdMarca();
+                    "id_marca_fk= "+p.getIdMarca()+
+                    "WHERE id_producto= "+p.getIdProducto();
             c.consultasMultiples(query);
         }catch (Exception e){
             System.out.println("Error(ActualizarProducto"+e.getMessage());
@@ -88,7 +89,7 @@ public class ProductoDAO implements ConsultasProducto{
         Conector c=new Conector();
         try{
             c.conectar();
-            String query="DELETE from producto where id_producto= "+p.getIdProducto();
+            String query="DELETE from producto WHERE id_producto= "+p.getIdProducto();
             c.consultasMultiples(query);
         }catch (Exception e){
             System.out.println("Error (EliminarProducto"+e.getMessage());
@@ -97,4 +98,43 @@ public class ProductoDAO implements ConsultasProducto{
         c.desconectar();
         return true;
     }
+
+    @Override
+    public ProductoVO mostrarProducto(ProductoVO p) {
+        Conector c = new Conector();
+        ProductoVO pvo = new ProductoVO();
+        try{
+            c.conectar();
+            String query="SELECT  id_producto,"+
+                        "descripcion_producto, "+
+                        "cantidad_producto, "+
+                        "precio_producto, "+
+                        "estado_producto, "+
+                        "id_marca_fk "+
+                        "from producto " +
+                        "WHERE id_producto= "+p.getIdProducto();
+            ResultSet rs=c.consultaDatos(query);
+            rs.next(); 
+            pvo.setIdProducto(rs.getInt(1));
+            pvo.setDescripcionProducto(rs.getString(2));
+            pvo.setCantidadProducto(rs.getInt(3));
+            pvo.setPrecioProducto(rs.getDouble(4));
+            pvo.setEstadoProducto(rs.getInt(5));
+            pvo.setIdMarca(rs.getInt(6)); 
+            c.desconectar();
+        }catch(Exception e){
+            System.err.println("Error(MostrarProducto): "+e.getMessage());
+            c.desconectar();
+        }
+        return pvo;
+        
+     }
+
+  
+ 
+     
 }
+
+
+
+

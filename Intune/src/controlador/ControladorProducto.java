@@ -88,7 +88,13 @@ public class ControladorProducto implements ActionListener, MouseListener {
     }
     
     public void eliminarRegistro(){
- //       pVO.setIdProducto(Integer.parseInt()
+ //       pVO.setIdProducto(Integer.parseInt(vProd.txtIdProducto.getText()));
+        boolean respuesta=pDAO.eliminarProducto(pVO);
+        if(respuesta=false){
+            JOptionPane.showInputDialog(null,"Error al Eliminar Producto");
+            limpliarRegistro();
+            LlenarTabla(vProd.tblProductos);
+        }
         
     }
     

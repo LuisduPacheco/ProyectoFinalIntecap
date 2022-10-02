@@ -32,13 +32,17 @@ public class ControladorUsuario implements ActionListener{
         uvo.setClaveUsuario(vUs.txtPasswordU.getText());
         uvo.setIdTipoUsuario(Integer.parseInt(this.vUs.txtTipoU.getText()));
         uvo.setEstadoUsuario(Integer.parseInt(this.vUs.txtEstadoU.getText()));       
-        
+        udao.insertarUsuario(uvo);
     }
     
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        if(e.getSource() == vUs.btnIngresarU){
+            this.ingresarUsuario();
+        }
+        if(e.getSource() == vUs.btnSalirU)
+            vUs.dispose();
     }
    
     

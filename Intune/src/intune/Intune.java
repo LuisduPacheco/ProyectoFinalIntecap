@@ -3,6 +3,7 @@ package intune;
 import conexion.Conector;
 import controlador.ControlLogin;
 import controlador.ControlMenu;
+import controlador.ControladorUsuario;
 import modelo.UsuarioDAO;
 import modelo.UsuarioVO;
 import vista.FrmLogin;
@@ -34,14 +35,14 @@ public class Intune {
         
         //OBJETOS VO
         UsuarioVO uVo = new UsuarioVO();
-        //TipoUsuarioVO ZOILA
+        TipoUsuarioVO tUvo = new TipoUsuarioVO();
         //MarcaVO GERARDO
         //ProductoVO BALVY
         
         //CONTROLADORES
         ControlLogin cLog = new ControlLogin(vLog, vMnup, uDao, uVo);
         ControlMenu cMnup = new ControlMenu(vUsua, vProd, vMarc, vMnup);
-        //Controlador Usuarios ZOILA
+        ControladorUsuario cUsua = new ControladorUsuario(vUsua, uVo, uDao);
         //Controlador Marcas    GERARDO 
         //Controlador Productos BALVY
         

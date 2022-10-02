@@ -14,7 +14,7 @@ import modelo.ProductoDAO;
 import modelo.ProductoVO; 
 import vista.FrmProductos;
 
-public class ControladorProducto implements ActionListener, MouseListener,WindowListener {
+public class ControladorProducto implements ActionListener, MouseListener {
     FrmProductos vProd = new FrmProductos();
     ProductoDAO pDAO = new ProductoDAO();
     ProductoVO pVO = new ProductoVO();
@@ -26,6 +26,7 @@ public class ControladorProducto implements ActionListener, MouseListener,Window
         this.vProd.btnIngresarP.addActionListener(this);
         this.vProd.btnActualizarP.addActionListener(this);
         this.vProd.btnEliminarP.addActionListener(this);
+        this.vProd.btnSalirP.addActionListener(this);
         this.vProd.tblProductos.addMouseListener(this);
         LlenarTabla(vProd.tblProductos);
     }
@@ -43,8 +44,8 @@ public class ControladorProducto implements ActionListener, MouseListener,Window
         int numRegistros = pDAO.consultaProducto().size();
         for (int i=0;i<numRegistros;i++){
             columna[0]=pDAO.consultaProducto().get(i).getIdProducto();
-            columna[1]=pDAO.consultaProducto().get(i).getIdMarca();
-            columna[2]=pDAO.consultaProducto().get(i).getDescripcionProducto();
+            columna[1]=pDAO.consultaProducto().get(i).getDescripcionProducto();
+            columna[2]=pDAO.consultaProducto().get(i).getIdMarca();
             columna[3]=pDAO.consultaProducto().get(i).getCantidadProducto();
             columna[4]=pDAO.consultaProducto().get(i).getPrecioProducto();
             columna[5]=pDAO.consultaProducto().get(i).getEstadoProducto();
@@ -129,6 +130,7 @@ public class ControladorProducto implements ActionListener, MouseListener,Window
  //         consultarRegistro();
  //     }
         if (e.getSource()==vProd.btnSalirP){
+            System.out.println("Ups no se salio");
             vProd.dispose();
         }
     }
@@ -148,57 +150,19 @@ public class ControladorProducto implements ActionListener, MouseListener,Window
 
     @Override
     public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void windowOpened(WindowEvent e) {
-       this.mostrarRegistro();
-    }
-
-    @Override
-    public void windowClosing(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void windowClosed(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void windowIconified(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void windowDeiconified(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void windowActivated(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void windowDeactivated(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

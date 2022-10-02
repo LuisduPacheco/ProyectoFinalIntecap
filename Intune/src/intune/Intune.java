@@ -29,7 +29,7 @@ public class Intune {
         //OBJETOS MODELO
         //OBJETOS DAO
         UsuarioDAO uDao = new UsuarioDAO();
-        //TipoUsuarioDAO ZOILA
+        //TipoUsuarioDAO tUdAo = new TipoUsuarioDAO();
         //MarcaDAO GERARDO
         //ProductoDAO BALVY
         

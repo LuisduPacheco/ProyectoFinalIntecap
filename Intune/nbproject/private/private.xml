@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/modelo/UsuarioDAO.java</file>
-            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/controlador/ControladorUsuario.java</file>
-            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/modelo/UsuarioVO.java</file>
-            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/controlador/ControlLogin.java</file>
-            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/vista/FrmUsuarios.java</file>
-=======
-            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/intune/Intune.java</file>
-            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/controlador/ControladorProducto.java</file>
->>>>>>> dc7808a5adb5f4a8a6aa2b8d74b0583ce381ae9f
+            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/modelo/ProductoDAO.java</file>
+            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/modelo/TipoUsuarioDAO.java</file>
+            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/intune/Intune.java</file>
+            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/modelo/ConsultasTipoUsuario.java</file>
         </group>
     </open-files>
 </project-private>

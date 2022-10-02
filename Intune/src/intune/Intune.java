@@ -4,6 +4,7 @@ import conexion.Conector;
 import controlador.ControlLogin;
 import controlador.ControlMenu;
 import controlador.ControladorUsuario;
+import modelo.TipoUsuarioVO;
 import modelo.UsuarioDAO;
 import modelo.UsuarioVO;
 import vista.FrmLogin;
@@ -35,7 +36,7 @@ public class Intune {
         
         //OBJETOS VO
         UsuarioVO uVo = new UsuarioVO();
-        TipoUsuarioVO tUvo = new TipoUsuarioVO();
+        TipoUsuarioVO tUvO = new TipoUsuarioVO();
         //MarcaVO GERARDO
         //ProductoVO BALVY
         

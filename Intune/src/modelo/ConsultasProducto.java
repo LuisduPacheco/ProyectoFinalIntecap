@@ -8,4 +8,5 @@ public interface ConsultasProducto {
     public ArrayList<ProductoVO> consultaProducto();
     public boolean actualizarProducto(ProductoVO p);
     public boolean eliminarProducto(ProductoVO p);
+    public ProductoVO mostrarProducto(ProductoVO p);
 }

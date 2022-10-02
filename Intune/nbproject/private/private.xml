@@ -3,10 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/modelo/ProductoDAO.java</file>
             <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/modelo/TipoUsuarioDAO.java</file>
             <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/intune/Intune.java</file>
             <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/modelo/ConsultasTipoUsuario.java</file>
+=======
+            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/modelo/ProductoDAO.java</file>
+            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/controlador/ControladorProducto.java</file>
+            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/intune/Intune.java</file>
+>>>>>>> 060182b8c7660e8634095e56a5be225dffa535bc
         </group>
     </open-files>
 </project-private>

@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/vista/FrmLogin.java</file>
+            <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/vista/FrmProductos.java</file>
+            <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/conexion/Conector.java</file>
+            <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/intune/Intune.java</file>
+            <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/vista/FrmUsuarios.java</file>
+            <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/modelo/UsuarioDAO.java</file>
+            <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/controlador/ControlLogin.java</file>
+            <file>file:/C:/Users/LUIS/Desktop/SEMESTRES%202022/INTECAP/PROYECTO%20FINAL/Proyecto%20Intune/Intune/src/vista/FrmMarcas.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/modelo/ProductoDAO.java</file>
+            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/modelo/TipoUsuarioDAO.java</file>
+            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/intune/Intune.java</file>
+            <file>file:/C:/Users/peace/Desktop/intune2022/ProyectoFinalIntecap/Intune/src/modelo/ConsultasTipoUsuario.java</file>
+=======
+            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/modelo/ProductoDAO.java</file>
+            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/controlador/ControladorProducto.java</file>
+            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/intune/Intune.java</file>
+>>>>>>> 060182b8c7660e8634095e56a5be225dffa535bc
+>>>>>>> cc5130540c9e51af69c24c60c718e6db35e72f47
+        </group>
+>>>>>>> 6dcb52121f995b5d1b79ad3dc6491daf170380da
     </open-files>
 </project-private>

@@ -36,6 +36,8 @@ public class ControlLogin implements ActionListener {
                         && String.valueOf(vLog.txtPassword.getPassword()).equals(uvo.getClaveUsuario())) {
                         System.out.println("Se encontraron datos");
                         validar = true;
+                        
+                        //VALIDANDO SI ES
                         //VALIDANDO SI ES ADMIN o USUARIO OPERADOR
                         if(uvo.getIdTipoUsuario() == 0){
                            

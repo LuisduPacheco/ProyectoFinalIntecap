@@ -6,6 +6,7 @@
 package vista;
 
 import javax.swing.table.DefaultTableModel;
+import modelo.MarcaVO;
 
 /**
  *
@@ -314,7 +315,7 @@ public class FrmProductos extends javax.swing.JFrame {
     public javax.swing.JButton btnIngresarP;
     public javax.swing.JButton btnLimpiarP;
     public javax.swing.JButton btnSalirP;
-    public javax.swing.JComboBox<MarcaVO> cbxMarcasP;
+    public javax.swing.JComboBox<String> cbxMarcasP;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

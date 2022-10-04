@@ -10,34 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7042b4e-7286-4978-a4f8-ec8dff8ead24" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../AppAcelerometro/app/src/main/res/drawable/ic_latigo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppAcelerometro/app/src/main/res/raw/ic_latigo.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSensoresAP/app/src/main/java/com/luis/appsensoresap/MASensor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSensoresAP/app/src/main/java/com/luis/appsensoresap/MASensorA.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSensoresAP/app/src/main/res/drawable/ic_ojoa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSensoresAP/app/src/main/res/drawable/ic_ojoc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSensoresAP/app/src/main/res/drawable/ic_pikachu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSensoresAP/app/src/main/res/layout/activity_masensor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSensoresAP/app/src/main/res/layout/activity_masensor2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSensoresAP/app/src/main/res/raw/ic_pikachu.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/java/com/luis/appsw/MAActualizarSW.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/java/com/luis/appsw/MABuscarIdSW.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/java/com/luis/appsw/MAEliminarSW.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/java/com/luis/appsw/MAInsertarSW.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/java/com/luis/appsw/MAListarMostrarSW.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/java/com/luis/appsw/basededatossw/ProductoDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/java/com/luis/appsw/basededatossw/ProductoVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/java/com/luis/appsw/complementos/Constantes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/java/com/luis/appsw/complementos/ConsultasDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/res/drawable-v24/ic_producto.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/res/drawable-v24/ic_productos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/res/drawable/ic_add.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/res/drawable/ic_buscar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/res/layout/activity_maactualizar_sw.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/res/layout/activity_mabuscar_id_sw.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/res/layout/activity_maeliminar_sw.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/res/layout/activity_mainsertar_sw.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../AppSw/app/src/main/res/layout/activity_malistar_mostrar_sw.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +26,10 @@
     </projectState>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="2FeO2IHRWq965baQ0iOdXNoBaYs" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -64,6 +42,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../NewRepository/Android/Proyectos/IntuneApp" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -134,5 +114,10 @@
       <updated>1664848875172</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
   </component>
 </project>

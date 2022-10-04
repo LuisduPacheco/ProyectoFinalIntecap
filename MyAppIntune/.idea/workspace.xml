@@ -10,12 +10,18 @@
   </component>
   <component name="ChangeListManager">
 <<<<<<< HEAD
+    <list default="true" id="c60e45df-efa2-45e3-960e-c167ab1e532e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Intune/nbproject/private/private.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Intune/nbproject/private/private.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Intune/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Intune/nbproject/private/private.xml" afterDir="false" />
+=======
+<<<<<<< HEAD
     <list default="true" id="c60e45df-efa2-45e3-960e-c167ab1e532e" name="Changes" comment="" />
 =======
     <list default="true" id="a7042b4e-7286-4978-a4f8-ec8dff8ead24" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> c7c63be97dec44bc8ec87f38ee3f9eee21849cf6
     </list>
 >>>>>>> 2a847291a96d4df9ee8915e8c7afa733589f3301
     <option name="SHOW_DIALOG" value="false" />

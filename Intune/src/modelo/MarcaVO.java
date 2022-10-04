@@ -8,6 +8,14 @@ public class MarcaVO {
 
     public MarcaVO() {
     }
+ 
+    public MarcaVO(int idMarca, String nombreMarca) {
+        this.idMarca = idMarca;
+        this.nombreMarca = nombreMarca;
+     }
+      public MarcaVO( String nombreMarca) { 
+        this.nombreMarca = nombreMarca;
+     }
 
     public int getIdMarca() {
         return idMarca;

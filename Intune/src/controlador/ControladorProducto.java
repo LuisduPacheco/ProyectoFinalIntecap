@@ -7,19 +7,24 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.ProductoDAO;
 import modelo.ProductoVO; 
 import vista.FrmProductos;
+import modelo.MarcaDAO;
+import modelo.MarcaVO;
 
 public class ControladorProducto implements ActionListener, MouseListener {
     FrmProductos vProd = new FrmProductos();
     ProductoDAO pDAO = new ProductoDAO();
     ProductoVO pVO = new ProductoVO();
+    MarcaDAO mDAO = new MarcaDAO();
+    MarcaVO mVO = new MarcaVO();
     
-    public ControladorProducto(FrmProductos vProd, ProductoDAO pDAO, ProductoVO pVO){
+    public ControladorProducto(FrmProductos vProd, ProductoDAO pDAO, ProductoVO pVO,MarcaDAO mDAO,MarcaVO mVO){
         this.vProd = vProd;
         this.pDAO = pDAO;
         this.pVO = pVO;
@@ -116,7 +121,17 @@ public class ControladorProducto implements ActionListener, MouseListener {
         vProd.txtMarcaP.requestFocus();     
     }
     
-
+    public void llenaMarca(){
+        MarcaDAO mDAO = new MarcaDAO();
+        ArrayList<MarcaVO> info = mDAO.consultarMarca();
+        vProd.cbxMarcasP.removeAllItems();
+        for(int i=0;i<info.size();i++){ 
+            
+         vProd.cbxMarcasP.addItem(new MarcaVO(info.get(i).getIdMarca(),
+                 info.get(i).getNombreMarca()) );
+         
+        }
+    }
     
     
     @Override
@@ -158,7 +173,6 @@ public class ControladorProducto implements ActionListener, MouseListener {
  //         mostrarRegistro();
  //     }
         if (e.getSource()==vProd.btnSalirP){
-            System.out.println("Ups no se salio");
             vProd.dispose();
         }
     }
@@ -175,6 +189,8 @@ public class ControladorProducto implements ActionListener, MouseListener {
             
         }
     }
+    
+    
 
     @Override
     public void mousePressed(MouseEvent e) {

@@ -3,8 +3,11 @@ package intune;
 import conexion.Conector;
 import controlador.ControlLogin;
 import controlador.ControlMenu;
+import controlador.ControladorMarcas;
 import controlador.ControladorProducto;
 import controlador.ControladorUsuario;
+import modelo.MarcaDAO;
+import modelo.MarcaVO;
 import modelo.ProductoDAO;
 import modelo.ProductoVO;
 import modelo.TipoUsuarioVO;
@@ -33,21 +36,21 @@ public class Intune {
         //OBJETOS DAO
         UsuarioDAO uDao = new UsuarioDAO();
         //TipoUsuarioDAO tUdAo = new TipoUsuarioDAO();
-        //MarcaDAO GERARDO
+        MarcaDAO mDao = new MarcaDAO();
         ProductoDAO pDAO = new ProductoDAO();
         
         
         //OBJETOS VO
         UsuarioVO uVo = new UsuarioVO();
         TipoUsuarioVO tUvO = new TipoUsuarioVO();
-        //MarcaVO GERARDO
+        MarcaVO mVO = new MarcaVO();
         ProductoVO pVO = new ProductoVO();
         
         //CONTROLADORES
         ControlLogin cLog = new ControlLogin(vLog, vMnup, uDao, uVo);
         ControlMenu cMnup = new ControlMenu(vUsua, vProd, vMarc, vMnup);
         ControladorUsuario cUsua = new ControladorUsuario(vUsua, uVo, uDao);
-        //Controlador Marcas    GERARDO 
+        ControladorMarcas cMarca = new ControladorMarcas(mDao, mVO, vMarc);
         ControladorProducto cProd = new ControladorProducto(vProd, pDAO, pVO);
         
         

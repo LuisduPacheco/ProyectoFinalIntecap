@@ -27,6 +27,7 @@ public class FrmMenuP extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jopMensajeM = new javax.swing.JOptionPane();
         btnUsuarios = new javax.swing.JButton();
         btnMarcas = new javax.swing.JButton();
         btnProductos = new javax.swing.JButton();
@@ -130,5 +131,6 @@ public class FrmMenuP extends javax.swing.JFrame {
     public javax.swing.JButton btnProductos;
     public javax.swing.JButton btnUsuarios;
     private javax.swing.JLabel jLabel1;
+    public javax.swing.JOptionPane jopMensajeM;
     // End of variables declaration//GEN-END:variables
 }

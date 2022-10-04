@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/MyAppIntune.iml" filepath="$PROJECT_DIR$/.idea/MyAppIntune.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyAppIntune.iml" filepath="$PROJECT_DIR$/.idea/modules/MyAppIntune.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MyAppIntune.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MyAppIntune.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MyAppIntune.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MyAppIntune.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MyAppIntune.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MyAppIntune.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MyAppIntune.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MyAppIntune.app.unitTest.iml" />
     </modules>
   </component>
 </project>

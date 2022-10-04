@@ -116,6 +116,9 @@ public class ControladorProducto implements ActionListener, MouseListener {
         vProd.txtMarcaP.requestFocus();     
     }
     
+
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==vProd.btnIngresarP){

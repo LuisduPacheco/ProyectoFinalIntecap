@@ -23,8 +23,7 @@ public class ControladorUsuario implements ActionListener, MouseListener, Window
         this.uvo = uvo;
         this.udao = udao;        
         this.vUs.btnIngresarU.addActionListener(this);
-        this.vUs.btnActualizarU.addActionListener(this);
-        this.vUs.btnEliminarU.addActionListener(this);       
+        this.vUs.btnActualizarU.addActionListener(this); 
         this.vUs.btnSalirU.addActionListener(this);   
         this.vUs.tblUsuarios.addMouseListener(this);  
         this.vUs.addWindowListener(this);

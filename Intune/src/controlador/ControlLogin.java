@@ -21,7 +21,6 @@ public class ControlLogin implements ActionListener {
         this.uVo = uVo;
 
         this.vLog.btnIngresar.addActionListener(this);
-        this.vLog.btnSalir.addActionListener(this);
     }
 
     //METODO PARA VALIDAR LAS CREDENCIALES
@@ -43,14 +42,14 @@ public class ControlLogin implements ActionListener {
                         if (uvo.getIdTipoUsuario() == 0) {
 
                             this.abrirVentanaAdmin();
-                            this.vMnup.jopMensajeM.showMessageDialog(vMnup, "Bienvenido " + uvo.getNombreUsuario() + " Nivel: Administrador");
+                            this.vMnup.jopMensajeM.showMessageDialog(vMnup, "Bienvenido " + uvo.getNombreUsuario() + " - Administrador");
                         } else {
 
                             this.abrirVentanaOperador();
-                            this.vMnup.jopMensajeM.showMessageDialog(vMnup, "Bienvenido " + uvo.getNombreUsuario() + " Nivel: Operador");
+                            this.vMnup.jopMensajeM.showMessageDialog(vMnup, "Bienvenido " + uvo.getNombreUsuario() + " - Operador");
                         }
                     }else{
-                        this.vLog.jopMensajeLog.showMessageDialog(vMnup, "El usuario está inactivo");
+                        this.vLog.jopMensajeLog.showMessageDialog(vMnup, "El usuario Inactivo");
                         this.limpiarLogin();
                     }
 
@@ -81,6 +80,7 @@ public class ControlLogin implements ActionListener {
         this.vMnup.setVisible(true);
         this.vMnup.setResizable(false);
         this.vMnup.setLocationRelativeTo(vLog);
+        this.vMnup.btnUsuarios.setEnabled(true);
         this.limpiarLogin();
     }
 
@@ -103,9 +103,7 @@ public class ControlLogin implements ActionListener {
             //this.abrirMenuPrincipal();
             this.validarLogin();
         }
-        if (e.getSource() == vLog.btnSalir) {
 
-        }
     }
 
 }

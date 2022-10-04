@@ -51,7 +51,7 @@ public class Intune {
         ControlMenu cMnup = new ControlMenu(vUsua, vProd, vMarc, vMnup);
         ControladorUsuario cUsua = new ControladorUsuario(vUsua, uVo, uDao);
         ControladorMarcas cMarca = new ControladorMarcas(mDao, mVO, vMarc);
-        ControladorProducto cProd = new ControladorProducto(vProd, pDAO, pVO);
+        ControladorProducto cProd = new ControladorProducto(vProd, pDAO, pVO,mDao,mVO);
         
         
         //PROPIEDADES DE LAS VENTANAS

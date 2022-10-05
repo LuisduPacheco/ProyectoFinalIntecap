@@ -24,17 +24,18 @@ public class ControladorMarcas implements ActionListener, WindowListener, MouseL
         
         this.frmM.btnIngresarM.addActionListener(this);
         this.frmM.btnEliminarM.addActionListener(this);
-        this.frmM.btnIngresarM.addActionListener(this);
         this.frmM.btnSalirM.addActionListener(this);
+        this.frmM.btnActualizarM.addActionListener(this);
         this.frmM.addWindowListener(this);
         this.frmM.tblMarcas.addMouseListener(this);
     }
     
     private boolean verificarVacios(){
         boolean vacios = true;
-        if((this.frmM.txtNombreM.getText() != "")&&(this.frmM.txtNombreM.getText() != "")){
+        if(!(this.frmM.txtNombreM.getText().equals(""))||!(this.frmM.txtEstadoM.getText().equals(""))){
             vacios = false;
         }
+        System.out.println(vacios);
         return vacios;
     }
     
@@ -67,36 +68,60 @@ public class ControladorMarcas implements ActionListener, WindowListener, MouseL
         int row = this.frmM.tblMarcas.getSelectedRow();
         int estado = 0;
         this.frmM.txtNombreM.setText(String.valueOf(this.frmM.tblMarcas.getValueAt(row, 1)));
+        this.mVO.setIdMarca(Integer.parseInt(String.valueOf(this.frmM.tblMarcas.getValueAt(row, 0))));
         if(String.valueOf(this.frmM.tblMarcas.getValueAt(row, 2)) == "Activo"){
             estado = 1;
         }
         this.frmM.txtEstadoM.setText(String.valueOf(estado));
     }
     
-    private void verificarExistencia(){
-        
+    private void modificarMarca(){
+        if(!(verificarVacios())){
+            try {
+                int estado = Integer.parseInt(this.frmM.txtEstadoM.getText());
+                        if((estado == 1)||(estado == 2)){
+                            this.mVO.setNombreMarca(this.frmM.txtNombreM.getText());
+                            this.mVO.setEstadoMarca(estado);
+                            if(this.mDAO.actualizarMarca(mVO)){
+                                this.frmM.jopMensajeM.showMessageDialog(frmM, "Se actualizaron los datos");
+                                this.frmM.txtEstadoM.setText("");
+                                this.frmM.txtNombreM.setText("");
+                            }else{
+                                this.frmM.jopMensajeM.showMessageDialog(frmM, "No se modificaron");
+                            }
+                        }else{
+                            this.frmM.jopMensajeM.showMessageDialog(frmM, "Para el campo de estado unicamente ingrese\n 0) para Desactivo \n 1) para Activo");
+                        }
+            } catch (Exception e) {
+                this.frmM.jopMensajeM.showMessageDialog(frmM, "Para el campo de estado ingrese 0 para Desactivo o 1 para Activo");
+            }
+        }else{
+            this.frmM.jopMensajeM.showMessageDialog(frmM, "Llene todos los campos");
+        }
     }
     
     public void insertarMarca(){
-        if(!verificarVacios()){
+        if(!(verificarVacios())){
             try {
-                int estado = Integer.parseInt(this.frmM.txtNombreM.getText());
+                int estado = Integer.parseInt(this.frmM.txtEstadoM.getText());
                         if((estado == 1)||(estado == 2)){
                             this.mVO.setNombreMarca(this.frmM.txtNombreM.getText());
                             this.mVO.setEstadoMarca(estado);
                             if(this.mDAO.insertarMarca(mVO)){
-                                this.frmM.jopMensajeM.showMessageDialog(frmM, "Se agregaron los datos Correctamente");
+                                this.frmM.jopMensajeM.showMessageDialog(frmM, "Se insertaron los datos correctamente!");
                                 this.frmM.txtEstadoM.setText("");
                                 this.frmM.txtNombreM.setText("");
                             }else{
-                                
+                                this.frmM.jopMensajeM.showMessageDialog(frmM, "No se agregaron");
                             }
                         }else{
-                            this.frmM.jopMensajeM.showMessageDialog(frmM, "Para el campo de estado unicamente ingrese 1) Activo o 2) Desactivo");
+                            this.frmM.jopMensajeM.showMessageDialog(frmM, "Para el campo de estado unicamente ingrese\n 0) para Desactivo \n 1) para Activo");
                         }
             } catch (Exception e) {
-                this.frmM.jopMensajeM.showMessageDialog(frmM, "Para el campo de estado ingrese 1) Activo o 2) Desactivo");
+                this.frmM.jopMensajeM.showMessageDialog(frmM, "Para el campo de estado ingrese 0 para Desactivo o 1 para Activo");
             }
+        }else{
+            this.frmM.jopMensajeM.showMessageDialog(frmM, "Llene todos los campos");
         }
     }
 
@@ -104,6 +129,12 @@ public class ControladorMarcas implements ActionListener, WindowListener, MouseL
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == this.frmM.btnSalirM){
             this.frmM.dispose();
+        }
+        if(e.getSource() == this.frmM.btnIngresarM){
+            insertarMarca();
+        }
+        if(e.getSource()== this.frmM.btnActualizarM){
+            modificarMarca();
         }
     }
 

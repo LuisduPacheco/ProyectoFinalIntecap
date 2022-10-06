@@ -3,6 +3,8 @@ package controlador;
  
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
@@ -17,7 +19,7 @@ import vista.FrmProductos;
 import modelo.MarcaDAO;
 import modelo.MarcaVO;
 
-public class ControladorProducto implements ActionListener, MouseListener {
+public class ControladorProducto implements ActionListener, MouseListener,ItemListener {
     FrmProductos vProd = new FrmProductos();
     ProductoDAO pDAO = new ProductoDAO();
     ProductoVO pVO = new ProductoVO();
@@ -32,8 +34,11 @@ public class ControladorProducto implements ActionListener, MouseListener {
         this.vProd.btnActualizarP.addActionListener(this);
         this.vProd.btnEliminarP.addActionListener(this);
         this.vProd.btnSalirP.addActionListener(this);
+        this.vProd.btnLimpiarP.addActionListener(this);
         this.vProd.tblProductos.addMouseListener(this);
         LlenarTabla(vProd.tblProductos);
+        llenaMarca();
+        this.vProd.cbxMarcasP.addItemListener(this);
     }
     
     public void LlenarTabla(JTable tablaDatos){
@@ -123,14 +128,17 @@ public class ControladorProducto implements ActionListener, MouseListener {
     
     public void llenaMarca(){
         MarcaDAO mDAO = new MarcaDAO();
-        ArrayList<MarcaVO> info = mDAO.consultarMarca();
+        ArrayList<MarcaVO> info = mDAO.consultarMarca(); 
         vProd.cbxMarcasP.removeAllItems();
-        for(int i=0;i<info.size();i++){ 
-            
-         vProd.cbxMarcasP.addItem(new MarcaVO(info.get(i).getIdMarca(),
-                 info.get(i).getNombreMarca()) );
-         
+        for(int i=0;i<info.size();i++){  
+          vProd.cbxMarcasP.addItem(new MarcaVO(info.get(i).getIdMarca(),
+                 info.get(i).getNombreMarca()) ); 
         }
+        
+    //Pagina para lista de valores
+    //https://www.bing.com/videos/search?q=llenar+combobox+java+sql&&view=detail&mid=D283A0D229B9ACB5A526D283A0D229B9ACB5A526&&FORM=VRDGAR&ru=%2Fvideos%2Fsearch%3Fq%3Dllenar%2520combobox%2520java%2520sql%26qs%3Dn%26form%3DQBVRMH%26%3D%2525eAdministra%2520tu%2520historial%2520de%2520b%25C3%25BAsqueda%2525E%26sp%3D-1%26pq%3Dllenar%2520combobox%2520java%2520sql%26sc%3D0-24%26sk%3D%26cvid%3D4684356D93E542608EA2A1C640C2AFDC%26ghsh%3D0%26ghacc%3D0%26ghpl%3D
+     
+        
     }
     
     
@@ -172,6 +180,9 @@ public class ControladorProducto implements ActionListener, MouseListener {
  //     if (e.getSource()==vProd.btnConsulrarP){
  //         mostrarRegistro();
  //     }
+        if (e.getSource()==vProd.btnLimpiarP){
+            limpliarRegistro();
+        }
         if (e.getSource()==vProd.btnSalirP){
             vProd.dispose();
         }
@@ -189,9 +200,7 @@ public class ControladorProducto implements ActionListener, MouseListener {
             
         }
     }
-    
-    
-
+     
     @Override
     public void mousePressed(MouseEvent e) {
     }
@@ -206,6 +215,16 @@ public class ControladorProducto implements ActionListener, MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        System.out.println("Doble click");
+        if(e.getStateChange()==ItemEvent.SELECTED){
+            int id = this.vProd.cbxMarcasP.getItemAt(vProd.cbxMarcasP.getSelectedIndex()).getIdMarca();
+            this.vProd.txtMarcaP.setText(String.valueOf(id));
+        }
+        
     }
 
     

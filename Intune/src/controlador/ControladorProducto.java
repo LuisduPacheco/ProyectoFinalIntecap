@@ -150,9 +150,14 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
                 !vProd.txtMarcaP.getText().equals("") &&
                 !vProd.txtCantidadP.getText().equals("") &&
                 !vProd.txtEstadoP.getText().equals("")  ){
+                if(vProd.txtEstadoP.getText().equals("0")||
+                   vProd.txtEstadoP.getText().equals("1")     ){ 
                     insertarRegistro();
                     LlenarTabla(vProd.tblProductos);
                     limpliarRegistro();    
+                    }else {
+                    JOptionPane.showMessageDialog(null,"Valor de Estado invalido");
+                }
             }else {
               JOptionPane.showMessageDialog(null,"Ingresar informacion en todos los campos");
             }
@@ -163,14 +168,18 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
                 !vProd.txtMarcaP.getText().equals("") &&
                 !vProd.txtCantidadP.getText().equals("") &&
                 !vProd.txtEstadoP.getText().equals("")  ){
+                if(vProd.txtEstadoP.getText().equals("0")||
+                   vProd.txtEstadoP.getText().equals("1")     ){ 
                     modificarRegistro();
                     LlenarTabla(vProd.tblProductos);
                     limpliarRegistro();    
+                  }else {
+                    JOptionPane.showMessageDialog(null,"Valor de Estado invalido");  
+                  }
             }else {
               JOptionPane.showMessageDialog(null,"Ingresar informacion en todos los campos");
             }
-            
-            
+           
         }
         if (e.getSource()==vProd.btnEliminarP){
             eliminarRegistro();

@@ -23,11 +23,21 @@ public class ControladorMarcas implements ActionListener, WindowListener, MouseL
         this.frmM = frmMarcas;
         
         this.frmM.btnIngresarM.addActionListener(this);
-        this.frmM.btnEliminarM.addActionListener(this);
         this.frmM.btnSalirM.addActionListener(this);
         this.frmM.btnActualizarM.addActionListener(this);
         this.frmM.addWindowListener(this);
         this.frmM.tblMarcas.addMouseListener(this);
+    }
+    
+    private boolean verificarRepetidos(){
+        boolean flagRepetido = false;
+        String nombreMarca = this.frmM.txtNombreM.getText();
+        for(MarcaVO mVo: mDAO.consultarMarca()){
+            if(nombreMarca.equals(mVo.getNombreMarca())){
+                flagRepetido = true;
+            }
+        }
+        return flagRepetido;
     }
     
     private boolean verificarVacios(){
@@ -102,23 +112,27 @@ public class ControladorMarcas implements ActionListener, WindowListener, MouseL
     
     public void insertarMarca(){
         if(!(verificarVacios())){
-            try {
-                int estado = Integer.parseInt(this.frmM.txtEstadoM.getText());
-                        if((estado == 1)||(estado == 2)){
-                            this.mVO.setNombreMarca(this.frmM.txtNombreM.getText());
-                            this.mVO.setEstadoMarca(estado);
-                            if(this.mDAO.insertarMarca(mVO)){
-                                this.frmM.jopMensajeM.showMessageDialog(frmM, "Se insertaron los datos correctamente!");
-                                this.frmM.txtEstadoM.setText("");
-                                this.frmM.txtNombreM.setText("");
+            if(!(verificarRepetidos())){
+                try {
+                    int estado = Integer.parseInt(this.frmM.txtEstadoM.getText());
+                            if((estado == 1)||(estado == 2)){
+                                this.mVO.setNombreMarca(this.frmM.txtNombreM.getText());
+                                this.mVO.setEstadoMarca(estado);
+                                if(this.mDAO.insertarMarca(mVO)){
+                                    this.frmM.jopMensajeM.showMessageDialog(frmM, "Se insertaron los datos correctamente!");
+                                    this.frmM.txtEstadoM.setText("");
+                                    this.frmM.txtNombreM.setText("");
+                                }else{
+                                    this.frmM.jopMensajeM.showMessageDialog(frmM, "No se agregaron");
+                                }
                             }else{
-                                this.frmM.jopMensajeM.showMessageDialog(frmM, "No se agregaron");
+                                this.frmM.jopMensajeM.showMessageDialog(frmM, "Para el campo de estado unicamente ingrese\n 0) para Desactivo \n 1) para Activo");
                             }
-                        }else{
-                            this.frmM.jopMensajeM.showMessageDialog(frmM, "Para el campo de estado unicamente ingrese\n 0) para Desactivo \n 1) para Activo");
-                        }
-            } catch (Exception e) {
-                this.frmM.jopMensajeM.showMessageDialog(frmM, "Para el campo de estado ingrese 0 para Desactivo o 1 para Activo");
+                } catch (Exception e) {
+                    this.frmM.jopMensajeM.showMessageDialog(frmM, "Para el campo de estado ingrese 0 para Desactivo o 1 para Activo");
+                }
+            }else{
+                this.frmM.jopMensajeM.showMessageDialog(frmM, "Ya existe una marca con ese nombre");
             }
         }else{
             this.frmM.jopMensajeM.showMessageDialog(frmM, "Llene todos los campos");

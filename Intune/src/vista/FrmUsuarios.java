@@ -49,7 +49,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
         btnIngresarU = new javax.swing.JButton();
         btnActualizarU = new javax.swing.JButton();
         btnSalirU = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnLimpiarU = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtIdUsuario = new javax.swing.JTextField();
         cbxTipoUsuario = new javax.swing.JComboBox<>();
@@ -115,7 +115,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
 
         btnSalirU.setText("Salir");
 
-        jButton1.setText("Limpiar");
+        btnLimpiarU.setText("Limpiar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -127,7 +127,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
                     .addComponent(btnActualizarU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnIngresarU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSalirU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLimpiarU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -138,7 +138,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnActualizarU)
                 .addGap(12, 12, 12)
-                .addComponent(jButton1)
+                .addComponent(btnLimpiarU)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSalirU)
                 .addContainerGap(40, Short.MAX_VALUE))
@@ -322,9 +322,9 @@ public class FrmUsuarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizarU;
     public javax.swing.JButton btnIngresarU;
+    private javax.swing.JButton btnLimpiarU;
     public javax.swing.JButton btnSalirU;
     public javax.swing.JComboBox<String> cbxTipoUsuario;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

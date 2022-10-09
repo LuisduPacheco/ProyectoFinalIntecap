@@ -2,7 +2,9 @@
 package controlador;
  
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.ActionListener; 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
@@ -17,23 +19,26 @@ import vista.FrmProductos;
 import modelo.MarcaDAO;
 import modelo.MarcaVO;
 
-public class ControladorProducto implements ActionListener, MouseListener {
+public class ControladorProducto implements ActionListener, MouseListener,ItemListener {
     FrmProductos vProd = new FrmProductos();
     ProductoDAO pDAO = new ProductoDAO();
     ProductoVO pVO = new ProductoVO();
     MarcaDAO mDAO = new MarcaDAO();
     MarcaVO mVO = new MarcaVO();
     
-    public ControladorProducto(FrmProductos vProd, ProductoDAO pDAO, ProductoVO pVO,MarcaDAO mDAO,MarcaVO mVO){
+     public ControladorProducto(FrmProductos vProd, ProductoDAO pDAO, ProductoVO pVO,MarcaDAO mDAO,MarcaVO mVO){
         this.vProd = vProd;
         this.pDAO = pDAO;
         this.pVO = pVO;
         this.vProd.btnIngresarP.addActionListener(this);
         this.vProd.btnActualizarP.addActionListener(this);
-        this.vProd.btnEliminarP.addActionListener(this);
+//        this.vProd.btnEliminarP.addActionListener(this);
         this.vProd.btnSalirP.addActionListener(this);
+        this.vProd.btnLimpiarP.addActionListener(this);
         this.vProd.tblProductos.addMouseListener(this);
         LlenarTabla(vProd.tblProductos);
+        llenaMarca();
+        this.vProd.cbxMarcasP.addItemListener(this);
     }
     
     public void LlenarTabla(JTable tablaDatos){
@@ -142,9 +147,15 @@ public class ControladorProducto implements ActionListener, MouseListener {
                 !vProd.txtMarcaP.getText().equals("") &&
                 !vProd.txtCantidadP.getText().equals("") &&
                 !vProd.txtEstadoP.getText().equals("")  ){
+                if(vProd.txtEstadoP.getText().equals("0")||
+                   vProd.txtEstadoP.getText().equals("1")){
                     insertarRegistro();
                     LlenarTabla(vProd.tblProductos);
-                    limpliarRegistro();    
+                    limpliarRegistro();     
+                }else {
+                    JOptionPane.showMessageDialog(null,"Valor de Estado invalido");
+                }
+                    
             }else {
               JOptionPane.showMessageDialog(null,"Ingresar informacion en todos los campos");
             }
@@ -155,23 +166,31 @@ public class ControladorProducto implements ActionListener, MouseListener {
                 !vProd.txtMarcaP.getText().equals("") &&
                 !vProd.txtCantidadP.getText().equals("") &&
                 !vProd.txtEstadoP.getText().equals("")  ){
+                if(vProd.txtEstadoP.getText().equals("0")||
+                   vProd.txtEstadoP.getText().equals("1")){
                     modificarRegistro();
                     LlenarTabla(vProd.tblProductos);
-                    limpliarRegistro();    
+                    limpliarRegistro();   
+                }else{
+                    JOptionPane.showMessageDialog(null,"Valor de Estado invalido");
+                }
             }else {
               JOptionPane.showMessageDialog(null,"Ingresar informacion en todos los campos");
             }
             
             
         }
-        if (e.getSource()==vProd.btnEliminarP){
-            eliminarRegistro();
-            LlenarTabla(vProd.tblProductos);
-            limpliarRegistro();    
-        }
+//        if (e.getSource()==vProd.btnEliminarP){
+//           eliminarRegistro();
+//            LlenarTabla(vProd.tblProductos);
+//            limpliarRegistro();    
+//        }
  //     if (e.getSource()==vProd.btnConsulrarP){
  //         mostrarRegistro();
  //     }
+        if (e.getSource()==vProd.btnLimpiarP){
+            limpliarRegistro();
+        }
         if (e.getSource()==vProd.btnSalirP){
             vProd.dispose();
         }
@@ -206,6 +225,18 @@ public class ControladorProducto implements ActionListener, MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        System.out.println("Double click");
+        if(e.getStateChange()==ItemEvent.SELECTED){
+            int id = this.vProd.cbxMarcasP.getItemAt(vProd.cbxMarcasP.getSelectedIndex()).getIdMarca();
+            this.vProd.txtMarcaP.setText(String.valueOf(id));
+        }
+    
+    
+    
     }
 
     

@@ -41,5 +41,8 @@ public class MarcaVO {
         this.estadoMarca = estadoMarca;
     }
     
-    
+    public String toString(){
+        return idMarca+" - "+nombreMarca;
+    }
+
 }

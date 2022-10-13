@@ -32,7 +32,11 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
         this.pVO = pVO;
         this.vProd.btnIngresarP.addActionListener(this);
         this.vProd.btnActualizarP.addActionListener(this);
+<<<<<<< HEAD
 //        this.vProd.btnEliminarP.addActionListener(this);
+=======
+        //this.vProd.btnEliminarP.addActionListener(this);
+>>>>>>> 697e6e7f13dd1405edbaddf8c1312c23105cf644
         this.vProd.btnSalirP.addActionListener(this);
         this.vProd.btnLimpiarP.addActionListener(this);
         this.vProd.tblProductos.addMouseListener(this);
@@ -186,11 +190,19 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
             
             
         }
+<<<<<<< HEAD
 //        if (e.getSource()==vProd.btnEliminarP){
 //           eliminarRegistro();
 //            LlenarTabla(vProd.tblProductos);
 //            limpliarRegistro();    
 //        }
+=======
+     /* if (e.getSource()==vProd.btnEliminarP){
+            eliminarRegistro();
+           LlenarTabla(vProd.tblProductos);
+            limpliarRegistro();    
+        }*/
+>>>>>>> 697e6e7f13dd1405edbaddf8c1312c23105cf644
  //     if (e.getSource()==vProd.btnConsulrarP){
  //         mostrarRegistro();
  //     }

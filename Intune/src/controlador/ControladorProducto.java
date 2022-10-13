@@ -42,7 +42,13 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
     }
     
     public void LlenarTabla(JTable tablaDatos){
-        DefaultTableModel modeloTabla = new DefaultTableModel();
+        DefaultTableModel modeloTabla = new DefaultTableModel(){
+        
+        @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         tablaDatos.setModel(modeloTabla);
         modeloTabla.addColumn("idProducto");
         modeloTabla.addColumn("Descripcio");

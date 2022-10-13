@@ -8,6 +8,11 @@ public class TipoUsuarioVO {
     public TipoUsuarioVO() {
     }
 
+    public TipoUsuarioVO(int idTipoUsuario, String descripcionTipo) {
+        this.idTipoUsuario = idTipoUsuario;
+        this.descripcionTipo = descripcionTipo;
+    }
+
     
     public int getIdTipoUsuario() {
         return idTipoUsuario;
@@ -24,6 +29,8 @@ public class TipoUsuarioVO {
     public void setDescripcionTipo(String descripcionTipo) {
         this.descripcionTipo = descripcionTipo;
     }
-    
+    public String toString(){
+    return idTipoUsuario+" - "+descripcionTipo;
+    }
         
 }

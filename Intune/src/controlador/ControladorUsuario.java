@@ -1,8 +1,8 @@
-
 package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -12,231 +12,276 @@ import static java.lang.String.valueOf;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import modelo.TipoUsuairoDAO;
 import modelo.TipoUsuarioVO;
 import modelo.UsuarioDAO;
 import modelo.UsuarioVO;
 import vista.FrmUsuarios;
 
-public class ControladorUsuario implements ActionListener, MouseListener, WindowListener{
-    FrmUsuarios vUs = new FrmUsuarios();
-    UsuarioVO uvo = new UsuarioVO();
-    UsuarioDAO udao = new UsuarioDAO(); 
+public class ControladorUsuario implements ActionListener, MouseListener, WindowListener, ItemListener {
 
-    public ControladorUsuario(FrmUsuarios vUs, UsuarioVO uvo, UsuarioDAO udao) {
-        this.vUs = vUs;
-        this.uvo = uvo;
-        this.udao = udao;        
-        this.vUs.btnIngresarU.addActionListener(this);
-        this.vUs.btnActualizarU.addActionListener(this); 
-        this.vUs.btnSalirU.addActionListener(this);   
-        this.vUs.tblUsuarios.addMouseListener(this);  
-        this.vUs.addWindowListener(this);
-        this.listaIdUs();
-       
-        
-        
-        }
-    //esto es lo que se muestra en la tabla
-    public void mostTabUsuarios(JTable tblUsuarios){
-    DefaultTableModel m = new DefaultTableModel(); 
-    
-            
-            
-     m.setColumnCount(0);
-     m.addColumn("Id usuario");
-     m.addColumn("Nombre Usuario");
-     m.addColumn("Apellido Usuario");
-     m.addColumn("Códico Usuario");
-     m.addColumn("Clave Usuario");
-     m.addColumn("Id Tipo Usuario");
-     m.addColumn("Estado Usuario");
-    
-     for(UsuarioVO uvo : udao.consultarUsuario()){
-     m.addRow(new Object []{uvo.getIdUsuario(),uvo.getNombreUsuario(),
-     uvo.getApellidoUsuario(), uvo.getCodigoUsuario(), uvo.getClaveUsuario(),
-     uvo.getIdTipoUsuario(), uvo.getEstadoUsuario()
-     });
-     }
-     
-          
-    vUs.tblUsuarios.setModel(m);   
-    //asignar medidas columnas
-   
-    
+    FrmUsuarios vUsua = new FrmUsuarios();
+    UsuarioVO uVo = new UsuarioVO();
+    TipoUsuarioVO tUvO = new TipoUsuarioVO();
+    UsuarioDAO uDao = new UsuarioDAO();
+    TipoUsuairoDAO tUdAo = new TipoUsuairoDAO();
+
+    public ControladorUsuario(FrmUsuarios vUsua, UsuarioVO uVo, UsuarioDAO uDao, TipoUsuarioVO tUvO, TipoUsuairoDAO tUdAo) {
+        this.vUsua = vUsua;
+        this.uVo = uVo;
+        this.tUvO = tUvO;
+        this.uDao = uDao;
+        this.tUdAo = tUdAo;
+        this.vUsua.btnIngresarU.addActionListener(this);
+        this.vUsua.btnActualizarU.addActionListener(this);
+        this.vUsua.btnSalirU.addActionListener(this);
+        this.vUsua.tblUsuarios.addMouseListener(this);
+        this.vUsua.btnLimpiarU.addActionListener(this);
+        this.vUsua.cbxTipoUsuario.addItemListener(this);
+        this.vUsua.addWindowListener(this);
+        llenarTipoUsuario();
     }
-         
-    private void ingresarUsuario(){
-        uvo.setNombreUsuario(vUs.txtNombreU.getText());
-        uvo.setApellidoUsuario(vUs.txtApellidoU.getText());
-        uvo.setCodigoUsuario(vUs.txtUsuarioU.getText());
-        uvo.setClaveUsuario(vUs.txtPasswordU.getText());
-        uvo.setIdTipoUsuario(Integer.parseInt(this.vUs.txtTipoU.getText()));
-        uvo.setEstadoUsuario(Integer.parseInt(this.vUs.txtEstadoU.getText()));       
-     //limpiar ventana
-        if(udao.insertarUsuario(uvo) == true){
-        vUs.jopMensajeU.showMessageDialog(vUs, "Usuario ingresado correctamente");
-        this.vUs.txtNombreU.setText("");
-        this.vUs.txtApellidoU.setText("");
-        this.vUs.txtUsuarioU.setText("");
-        this.vUs.txtPasswordU.setText("");
-        this.vUs.txtTipoU.setText("");
-        this.vUs.txtEstadoU.setText(""); 
+
+    //este metodo muestra los datos de la tabla
+    public void mostTabUsuarios(JTable tblUsuarios) {
+        DefaultTableModel m = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        m.setColumnCount(0);
+        m.addColumn("Id usuario");
+        m.addColumn("Nombre Usuario");
+        m.addColumn("Apellido Usuario");
+        m.addColumn("Códico Usuario");
+        m.addColumn("Clave Usuario");
+        m.addColumn("Id Tipo Usuario");
+        m.addColumn("Estado Usuario");
+
+        for (UsuarioVO uVo : uDao.consultarUsuario()) {
+            m.addRow(new Object[]{uVo.getIdUsuario(), uVo.getNombreUsuario(),
+                uVo.getApellidoUsuario(), uVo.getCodigoUsuario(), uVo.getClaveUsuario(),
+                uVo.getIdTipoUsuario(), uVo.getEstadoUsuario()
+            });
+        }
+        vUsua.tblUsuarios.setModel(m);
+        //asignar medidas columnas si me da tiempo
+    }
+
+    private void ingresarUsuario() {
+        int estado = Integer.parseInt(this.vUsua.txtEstadoU.getText());
+        if ((estado == 0) || (estado == 1)) {
+            uVo.setNombreUsuario(vUsua.txtNombreU.getText());
+            uVo.setApellidoUsuario(vUsua.txtApellidoU.getText());
+            uVo.setCodigoUsuario(vUsua.txtUsuarioU.getText());
+            uVo.setClaveUsuario(vUsua.txtPasswordU.getText());
+            uVo.setIdTipoUsuario(Integer.parseInt(this.vUsua.txtTipoU.getText()));
+            uVo.setEstadoUsuario(Integer.parseInt(this.vUsua.txtEstadoU.getText()));
+            //validando para no permitir usuarios repetidos 
+
+            if (uDao.insertarUsuario(uVo) == true) {
+                vUsua.jopMensajeU.showMessageDialog(vUsua, "Usuario ingresado correctamente");
+                this.vUsua.txtNombreU.setText("");
+                this.vUsua.txtApellidoU.setText("");
+                this.vUsua.txtUsuarioU.setText("");
+                this.vUsua.txtPasswordU.setText("");
+                this.vUsua.txtTipoU.setText("");
+                this.vUsua.txtEstadoU.setText("");
+            } else {
+                vUsua.jopMensajeU.showMessageDialog(vUsua, "No se realizó porque el usuario ya existe");
+                this.vUsua.txtNombreU.setText("");
+                this.vUsua.txtApellidoU.setText("");
+                this.vUsua.txtUsuarioU.setText("");
+                this.vUsua.txtPasswordU.setText("");
+                this.vUsua.txtTipoU.setText("");
+                this.vUsua.txtEstadoU.setText("");
+            }
         }else{
-        vUs.jopMensajeU.showMessageDialog(vUs, "No se ha registrado usuario");
-        this.vUs.txtNombreU.setText("");
-        this.vUs.txtApellidoU.setText("");
-        this.vUs.txtUsuarioU.setText("");
-        this.vUs.txtPasswordU.setText("");
-        this.vUs.txtTipoU.setText("");
-        this.vUs.txtEstadoU.setText("");
+         vUsua.jopMensajeU.showMessageDialog(vUsua, "0 para usuario inactivo y 1 para usuario activo");
         }
     }
-    
-    public void limpiarPantalla(){
-    vUs.txtIdUsuario.setText("");
-    vUs.txtNombreU.setText("");
-    vUs.txtApellidoU.setText("");
-    vUs.txtUsuarioU.setText("");
-    vUs.txtPasswordU.setText("");
-    vUs.txtEstadoU.setText("");
-    vUs.txtTipoU.setText("");
-    vUs.txtNombreU.requestFocus();
+
+    private void limpiarPantalla() {
+        this.vUsua.txtIdUsuario.setText("");
+        this.vUsua.txtNombreU.setText("");
+        this.vUsua.txtApellidoU.setText("");
+        this.vUsua.txtUsuarioU.setText("");
+        this.vUsua.txtPasswordU.setText("");
+        this.vUsua.txtTipoU.setText("");
+        this.vUsua.txtEstadoU.setText("");
     }
-    
-    public void actulizarUsuario(){
-    uvo.setIdTipoUsuario(Integer.parseInt(vUs.txtIdUsuario.getText()));
-    uvo.setNombreUsuario(vUs.txtNombreU.getText());
-    uvo.setApellidoUsuario(vUs.txtApellidoU.getText());
-    uvo.setCodigoUsuario(vUs.txtUsuarioU.getText());
-    uvo.setClaveUsuario(vUs.txtPasswordU.getText());
-    uvo.setEstadoUsuario(Integer.parseInt(vUs.txtEstadoU.getText()));
-    uvo.setIdTipoUsuario(Integer.parseInt(vUs.txtTipoU.getText())); //consultar este
-    
-    boolean respuestaActualizar = udao.actualizarUsuario(uvo);
-    if(respuestaActualizar = false){
-    vUs.jopMensajeU.showMessageDialog(vUs, "No se ha actualizado usuario");
-    limpiarPantalla();
-    mostTabUsuarios(vUs.tblUsuarios);
+
+    private boolean validarUsuarioRepetido() {
+        for (UsuarioVO uVo : uDao.consultarUsuario()) {
+            if (uVo.getCodigoUsuario().equals(vUsua.txtUsuarioU.getText())) {
+                System.out.println("Se encontró usuario " + uVo.getCodigoUsuario());
+                return true;
+            }
+        }
+
+        return false;
     }
-    
-    }
-    
-    private void listaIdUs() {
+
+    private void actualizaListaUsuario() {
+        int estado = Integer.parseInt(this.vUsua.txtEstadoU.getText());
+        if ((estado == 0) || (estado == 1)){
+         uVo.setIdUsuario(Integer.parseInt(vUsua.txtIdUsuario.getText()));
+        uVo.setNombreUsuario(vUsua.txtNombreU.getText());
+        uVo.setApellidoUsuario(vUsua.txtApellidoU.getText());
+        uVo.setCodigoUsuario(vUsua.txtUsuarioU.getText());
+        uVo.setClaveUsuario(vUsua.txtPasswordU.getText());
+        uVo.setIdTipoUsuario(Integer.parseInt(vUsua.txtTipoU.getText()));
+        uVo.setEstadoUsuario(Integer.parseInt(vUsua.txtEstadoU.getText()));
+
+        boolean mensActulizar = uDao.actualizarUsuario(uVo);
+        if (mensActulizar = true) {
+            vUsua.jopMensajeU.showMessageDialog(vUsua, "Usuario actulizado exitosamente");
+            limpiarPantalla();
+            mostTabUsuarios(vUsua.tblUsuarios);
+        }
+        
+        }else{
+            vUsua.jopMensajeU.showMessageDialog(vUsua, "0 para usuario inactivo y 1 para usuario activo");
+        }
         
     }
-    
-    
-    
+
+    private void llenarTipoUsuario() {
+        // TipoUsuairoDAO tUdAo = new TipoUsuairoDAO();
+        //TipoUsuarioVO  tUvO =new TipoUsuarioVO();
+
+        ArrayList<TipoUsuarioVO> listaTipoUsuarios = tUdAo.consultarTipoUsuario();
+        vUsua.cbxTipoUsuario.removeAllItems();
+        for (int i = 0; i < listaTipoUsuarios.size(); i++) {
+            //vUsua.cbxTipoUsuario.addItem(listaTipoUsuarios.get(i).getDescripcionTipo());
+            vUsua.cbxTipoUsuario.addItem(new TipoUsuarioVO(listaTipoUsuarios.get(i).getIdTipoUsuario(), listaTipoUsuarios.get(i).getDescripcionTipo()));
+        }
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == vUs.btnIngresarU){
-            if(!this.vUs.txtNombreU.getText().equals("")&&
-               !this.vUs.txtApellidoU.getText().equals("")&&
-               !this.vUs.txtUsuarioU.getText().equals("")&&
-               !this.vUs.txtPasswordU.getText().equals("")&&
-               !this.vUs.txtTipoU.getText().equals("")&&
-               !this.vUs.txtEstadoU.getText().equals("")) {
-            this.ingresarUsuario();            
-            }else{
-            this.vUs.jopMensajeU.showMessageDialog(vUs, "Debe llenar todos los campos");
+        if (e.getSource() == vUsua.btnIngresarU) {
+            if (!validarUsuarioRepetido()) {
+                if (!this.vUsua.txtNombreU.getText().equals("")
+                        && !this.vUsua.txtApellidoU.getText().equals("")
+                        && !this.vUsua.txtUsuarioU.getText().equals("")
+                        && !this.vUsua.txtPasswordU.getText().equals("")
+                        && !this.vUsua.txtTipoU.getText().equals("")
+                        && !this.vUsua.txtEstadoU.getText().equals("")) {
+                    this.ingresarUsuario();
+                } else {
+                    this.vUsua.jopMensajeU.showMessageDialog(vUsua, "Debe llenar todos los campos");
+                }
+            } else {
+                this.vUsua.jopMensajeU.showMessageDialog(vUsua, "El usuario ya existe, ingrese otro");
             }
-            
+
         }
-        
-       if(e.getSource() ==vUs.btnActualizarU){       
-            if(!this.vUs.txtNombreU.getText().equals("")&&
-               !this.vUs.txtApellidoU.getText().equals("")&&
-               !this.vUs.txtUsuarioU.getText().equals("")&&
-               !this.vUs.txtPasswordU.getText().equals("")&&
-               !this.vUs.txtTipoU.getText().equals("")&&
-               !this.vUs.txtEstadoU.getText().equals("")) {  
-                actulizarUsuario();
-                limpiarPantalla();
-                mostTabUsuarios(vUs.tblUsuarios);
-            }else{
-            this.vUs.jopMensajeU.showMessageDialog(vUs, "Para actualizar debe ingresar datos");
-            }       
-       }   
-       
-      // if(e.getSource() == vUs.btnLimpiar){ aqui el boton limpiar}
-        
-        if(e.getSource() == vUs.btnSalirU){
-        vUs.dispose();
+
+        if (e.getSource() == vUsua.btnActualizarU) {
+            if (!this.vUsua.txtNombreU.getText().equals("")
+                    && !this.vUsua.txtApellidoU.getText().equals("")
+                    && !this.vUsua.txtUsuarioU.getText().equals("")
+                    && !this.vUsua.txtPasswordU.getText().equals("")
+                    && !this.vUsua.txtTipoU.getText().equals("")
+                    && !this.vUsua.txtEstadoU.getText().equals("")) {
+                this.actualizaListaUsuario();
+
+            } else {
+                this.vUsua.jopMensajeU.showMessageDialog(vUsua, "No hay datos para acuarlizar");
+            }
+
+            mostTabUsuarios(vUsua.tblUsuarios);
         }
-        
+
+        if (e.getSource() == vUsua.btnLimpiarU) {
+            limpiarPantalla();
+        }
+
+        if (e.getSource() == vUsua.btnSalirU) {
+            vUsua.dispose();
+        }
+
     }
 
-    
     @Override
     public void mouseClicked(MouseEvent e) {
         //este metodo llena los campos de la ventana para mostrarle al usuario donde esta realiza alguna accion
-       if(e.getSource() ==vUs.tblUsuarios){
-       vUs.txtIdUsuario.setText(vUs.tblUsuarios.getValueAt(vUs.tblUsuarios.getSelectedRow(), 0).toString());
-       vUs.txtNombreU.setText(vUs.tblUsuarios.getValueAt(vUs.tblUsuarios.getSelectedRow(), 1).toString());
-       vUs.txtApellidoU.setText(vUs.tblUsuarios.getValueAt(vUs.tblUsuarios.getSelectedRow(), 2).toString());
-       vUs.txtUsuarioU.setText(vUs.tblUsuarios.getValueAt(vUs.tblUsuarios.getSelectedRow(), 3).toString());
-       vUs.txtPasswordU.setText(vUs.tblUsuarios.getValueAt(vUs.tblUsuarios.getSelectedRow(), 4).toString());
-       vUs.txtEstadoU.setText(vUs.tblUsuarios.getValueAt(vUs.tblUsuarios.getSelectedRow(), 5).toString());
-       vUs.txtTipoU.setText(vUs.tblUsuarios.getValueAt(vUs.tblUsuarios.getSelectedRow(), 6).toString());      
-       
-       }
+        if (e.getSource() == vUsua.tblUsuarios) {
+            vUsua.txtIdUsuario.setText(vUsua.tblUsuarios.getValueAt(vUsua.tblUsuarios.getSelectedRow(), 0).toString());
+            vUsua.txtNombreU.setText(vUsua.tblUsuarios.getValueAt(vUsua.tblUsuarios.getSelectedRow(), 1).toString());
+            vUsua.txtApellidoU.setText(vUsua.tblUsuarios.getValueAt(vUsua.tblUsuarios.getSelectedRow(), 2).toString());
+            vUsua.txtUsuarioU.setText(vUsua.tblUsuarios.getValueAt(vUsua.tblUsuarios.getSelectedRow(), 3).toString());
+            vUsua.txtPasswordU.setText(vUsua.tblUsuarios.getValueAt(vUsua.tblUsuarios.getSelectedRow(), 4).toString());
+            vUsua.txtTipoU.setText(vUsua.tblUsuarios.getValueAt(vUsua.tblUsuarios.getSelectedRow(), 5).toString());
+            vUsua.txtEstadoU.setText(vUsua.tblUsuarios.getValueAt(vUsua.tblUsuarios.getSelectedRow(), 6).toString());
+
+        }
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        
-    }   
+
+    }
 
     @Override
     public void windowOpened(WindowEvent e) {
-         mostTabUsuarios(vUs.tblUsuarios);
+        mostTabUsuarios(vUsua.tblUsuarios);
+        vUsua.txtTipoU.setEditable(false);
     }
 
     @Override
     public void windowClosing(WindowEvent e) {
-        
+
     }
 
     @Override
     public void windowClosed(WindowEvent e) {
-        
+
     }
 
     @Override
     public void windowIconified(WindowEvent e) {
-        
+
     }
 
     @Override
     public void windowDeiconified(WindowEvent e) {
-        
+
     }
 
     @Override
     public void windowActivated(WindowEvent e) {
-        
+        vUsua.txtTipoU.setEditable(false);
     }
 
     @Override
     public void windowDeactivated(WindowEvent e) {
-        
+
     }
-    
-    
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        if (e.getStateChange() == ItemEvent.SELECTED) {
+            int id = this.vUsua.cbxTipoUsuario.getItemAt(vUsua.cbxTipoUsuario.getSelectedIndex()).getIdTipoUsuario();
+            this.vUsua.txtTipoU.setText(String.valueOf(id));
+        }
+    }
+
 }

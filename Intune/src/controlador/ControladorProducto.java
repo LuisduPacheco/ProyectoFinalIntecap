@@ -30,7 +30,7 @@ public class ControladorProducto implements ActionListener, MouseListener {
         this.pVO = pVO;
         this.vProd.btnIngresarP.addActionListener(this);
         this.vProd.btnActualizarP.addActionListener(this);
-        this.vProd.btnEliminarP.addActionListener(this);
+        //this.vProd.btnEliminarP.addActionListener(this);
         this.vProd.btnSalirP.addActionListener(this);
         this.vProd.tblProductos.addMouseListener(this);
         LlenarTabla(vProd.tblProductos);
@@ -164,11 +164,11 @@ public class ControladorProducto implements ActionListener, MouseListener {
             
             
         }
-        if (e.getSource()==vProd.btnEliminarP){
+     /* if (e.getSource()==vProd.btnEliminarP){
             eliminarRegistro();
-            LlenarTabla(vProd.tblProductos);
+           LlenarTabla(vProd.tblProductos);
             limpliarRegistro();    
-        }
+        }*/
  //     if (e.getSource()==vProd.btnConsulrarP){
  //         mostrarRegistro();
  //     }

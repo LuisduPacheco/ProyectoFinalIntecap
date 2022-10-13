@@ -10,6 +10,7 @@ import modelo.MarcaDAO;
 import modelo.MarcaVO;
 import modelo.ProductoDAO;
 import modelo.ProductoVO;
+import modelo.TipoUsuairoDAO;
 import modelo.TipoUsuarioVO;
 import modelo.UsuarioDAO;
 import modelo.UsuarioVO;
@@ -35,7 +36,7 @@ public class Intune {
         //OBJETOS MODELO
         //OBJETOS DAO
         UsuarioDAO uDao = new UsuarioDAO();
-        //TipoUsuarioDAO tUdAo = new TipoUsuarioDAO();
+        TipoUsuairoDAO tUdAo = new TipoUsuairoDAO();
         MarcaDAO mDao = new MarcaDAO();
         ProductoDAO pDAO = new ProductoDAO();
         
@@ -49,7 +50,7 @@ public class Intune {
         //CONTROLADORES
         ControlLogin cLog = new ControlLogin(vLog, vMnup, uDao, uVo);
         ControlMenu cMnup = new ControlMenu(vUsua, vProd, vMarc, vMnup);
-        ControladorUsuario cUsua = new ControladorUsuario(vUsua, uVo, uDao);
+        ControladorUsuario cUsuario = new ControladorUsuario(vUsua, uVo, uDao, tUvO, tUdAo);
         ControladorMarcas cMarca = new ControladorMarcas(mDao, mVO, vMarc);
         ControladorProducto cProd = new ControladorProducto(vProd, pDAO, pVO,mDao,mVO);
         

@@ -6,6 +6,7 @@
 package vista;
 
 import javax.swing.table.DefaultTableModel;
+import modelo.TipoUsuarioVO;
 
 /**
  *
@@ -150,8 +151,6 @@ public class FrmUsuarios extends javax.swing.JFrame {
         txtIdUsuario.setEditable(false);
         txtIdUsuario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        cbxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -263,7 +262,7 @@ public class FrmUsuarios extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,9 +321,9 @@ public class FrmUsuarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizarU;
     public javax.swing.JButton btnIngresarU;
-    private javax.swing.JButton btnLimpiarU;
+    public javax.swing.JButton btnLimpiarU;
     public javax.swing.JButton btnSalirU;
-    public javax.swing.JComboBox<String> cbxTipoUsuario;
+    public javax.swing.JComboBox<TipoUsuarioVO> cbxTipoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

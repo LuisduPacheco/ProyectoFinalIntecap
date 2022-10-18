@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ *
+ * @author peace
+ */
 public class Conector {
 
     //Variables para la conexión
@@ -19,6 +23,10 @@ public class Conector {
     Statement statement;
 
     //MÉTODO PARA CONECTAR
+
+    /**
+     *
+     */
     public void conectar() {
         this.cadena = "jdbc:mysql://" + this.host + "/" + this.database;
         try {
@@ -30,6 +38,10 @@ public class Conector {
     }
 
     //METODO PARA DESCONECTAR
+
+    /**
+     *
+     */
     public void desconectar() {
         try {
             this.connection.close();
@@ -39,6 +51,12 @@ public class Conector {
     }
 
     //Metodo para realizar consultas SELECT
+
+    /**
+     *
+     * @param consulta
+     * @return
+     */
     public ResultSet consultaDatos(String consulta) {
         try {
             this.conectar();
@@ -54,6 +72,12 @@ public class Conector {
     }
 
     //Método para realizar los querys de INSERT, UPDATE, DELETE
+
+    /**
+     *
+     * @param query
+     * @return
+     */
     public int consultasMultiples(String query) {
         int resultado;
         try {

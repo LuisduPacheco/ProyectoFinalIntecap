@@ -12,11 +12,21 @@ import modelo.MarcaDAO;
 import modelo.MarcaVO;
 import vista.FrmMarcas;
 
+/**
+ *
+ * @author peace,
+ */
 public class ControladorMarcas implements ActionListener, WindowListener, MouseListener{
     MarcaDAO mDAO = new MarcaDAO();
     MarcaVO mVO = new MarcaVO();
     FrmMarcas frmM = new FrmMarcas();
     
+    /**
+     *
+     * @param marcaDAO
+     * @param marcaVO
+     * @param frmMarcas
+     */
     public ControladorMarcas(MarcaDAO marcaDAO,MarcaVO marcaVO, FrmMarcas frmMarcas){
         this.mDAO = marcaDAO;
         this.mVO = marcaVO;
@@ -110,6 +120,9 @@ public class ControladorMarcas implements ActionListener, WindowListener, MouseL
         }
     }
     
+    /**
+     *
+     */
     public void insertarMarca(){
         if(!(verificarVacios())){
             if(!(verificarRepetidos())){

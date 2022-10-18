@@ -5,8 +5,17 @@ import conexion.Conector;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author zoila, luis, gerardo y balvy
+ */
 public class MarcaDAO implements ConsultasMarca{
 
+    /**
+     *
+     * @param m
+     * @return
+     */
     @Override
     public boolean insertarMarca(MarcaVO m) {
         Conector c = new Conector();
@@ -26,6 +35,10 @@ public class MarcaDAO implements ConsultasMarca{
         return true;
      }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ArrayList<MarcaVO> consultarMarca() {
         Conector c = new Conector();
@@ -52,6 +65,11 @@ public class MarcaDAO implements ConsultasMarca{
         return info;
     }
 
+    /**
+     *
+     * @param m
+     * @return
+     */
     @Override
     public boolean actualizarMarca(MarcaVO m) {
         Conector c = new Conector();
@@ -70,6 +88,11 @@ public class MarcaDAO implements ConsultasMarca{
         return true;
     }
 
+    /**
+     *
+     * @param m
+     * @return
+     */
     @Override
     public boolean eliminarMarca(MarcaVO m) {
         Conector c=new Conector();

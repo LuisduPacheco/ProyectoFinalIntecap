@@ -20,8 +20,16 @@ import vista.FrmMenuP;
 import vista.FrmProductos;
 import vista.FrmUsuarios;
 
+/**
+ *
+ * @author peace
+ */
 public class Intune {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         Conector conector = new Conector();

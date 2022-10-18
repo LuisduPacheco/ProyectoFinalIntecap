@@ -5,8 +5,17 @@ import conexion.Conector;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author zoila, luis, gerardo y balvy
+ */
 public class ProductoDAO implements ConsultasProducto{
  
+    /**
+     *
+     * @param p
+     * @return
+     */
     @Override
     public boolean insertarProducto(ProductoVO p) {
         Conector c = new Conector();
@@ -32,6 +41,10 @@ public class ProductoDAO implements ConsultasProducto{
         return true;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ArrayList<ProductoVO> consultaProducto() {
         Conector c = new Conector();
@@ -64,6 +77,11 @@ public class ProductoDAO implements ConsultasProducto{
         return info;
     }
 
+    /**
+     *
+     * @param p
+     * @return
+     */
     @Override
     public boolean actualizarProducto(ProductoVO p) {
         Conector c = new Conector();
@@ -84,6 +102,12 @@ public class ProductoDAO implements ConsultasProducto{
         c.desconectar();
         return true;
     }
+
+    /**
+     *
+     * @param p
+     * @return
+     */
     @Override
     public boolean eliminarProducto(ProductoVO p) {
         Conector c=new Conector();
@@ -99,6 +123,11 @@ public class ProductoDAO implements ConsultasProducto{
         return true;
     }
 
+    /**
+     *
+     * @param p
+     * @return
+     */
     @Override
     public ProductoVO mostrarProducto(ProductoVO p) {
         Conector c = new Conector();

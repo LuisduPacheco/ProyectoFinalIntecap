@@ -7,6 +7,10 @@ import modelo.UsuarioVO;
 import vista.FrmLogin;
 import vista.FrmMenuP;
 
+/**
+ *
+ * @author peace
+ */
 public class ControlLogin implements ActionListener {
 
     FrmLogin vLog = new FrmLogin();
@@ -14,6 +18,13 @@ public class ControlLogin implements ActionListener {
     UsuarioDAO uDao = new UsuarioDAO();
     UsuarioVO uVo = new UsuarioVO();
 
+    /**
+     *
+     * @param vLog
+     * @param vMnup
+     * @param uDao
+     * @param uVo
+     */
     public ControlLogin(FrmLogin vLog, FrmMenuP vMnup, UsuarioDAO uDao, UsuarioVO uVo) {
         this.vLog = vLog;
         this.vMnup = vMnup;
@@ -24,6 +35,11 @@ public class ControlLogin implements ActionListener {
     }
 
     //METODO PARA VALIDAR LAS CREDENCIALES
+
+    /**
+     *
+     * @return
+     */
     public boolean validarLogin() {
         //VARIABLE PARA EL RETORNO E INDICAR QUE SÍ ENCONTRÓ DATOS EN LA BD
         boolean validar = false;
@@ -65,6 +81,10 @@ public class ControlLogin implements ActionListener {
     }
 
     //MÉTODO PARA ABRIR EL MENU
+
+    /**
+     *
+     */
     public void abrirMenuPrincipal() {
         if (this.validarLogin() == true) {
             this.vMnup.setVisible(true);
@@ -76,6 +96,9 @@ public class ControlLogin implements ActionListener {
         }
     }
 
+    /**
+     *
+     */
     public void abrirVentanaAdmin() {
         this.vMnup.setVisible(true);
         this.vMnup.setResizable(false);
@@ -84,6 +107,9 @@ public class ControlLogin implements ActionListener {
         this.limpiarLogin();
     }
 
+    /**
+     *
+     */
     public void abrirVentanaOperador() {
         this.vMnup.setVisible(true);
         this.vMnup.setResizable(false);
@@ -92,6 +118,9 @@ public class ControlLogin implements ActionListener {
         this.limpiarLogin();
     }
 
+    /**
+     *
+     */
     public void limpiarLogin() {
         this.vLog.txtPassword.setText("");
         this.vLog.txtUsuario.setText("");

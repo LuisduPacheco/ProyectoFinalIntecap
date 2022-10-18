@@ -5,8 +5,17 @@ import conexion.Conector;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author zoila, luis, gerardo y balvy
+ */
 public class UsuarioDAO implements ConsultasUsuario{
  
+    /**
+     *
+     * @param u
+     * @return
+     */
     @Override
     public boolean insertarUsuario(UsuarioVO u) {
         Conector c = new Conector();
@@ -34,6 +43,10 @@ public class UsuarioDAO implements ConsultasUsuario{
         return true;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ArrayList<UsuarioVO> consultarUsuario() {
         Conector c = new Conector();
@@ -67,6 +80,11 @@ public class UsuarioDAO implements ConsultasUsuario{
         return info;
     }
 
+    /**
+     *
+     * @param u
+     * @return
+     */
     @Override
     public boolean actualizarUsuario(UsuarioVO u) {
         Conector c = new Conector();
@@ -89,6 +107,11 @@ public class UsuarioDAO implements ConsultasUsuario{
         return true;
      }
 
+    /**
+     *
+     * @param u
+     * @return
+     */
     @Override
     public boolean eliminarUsuario(UsuarioVO u) {
         Conector c=new Conector();
@@ -104,6 +127,10 @@ public class UsuarioDAO implements ConsultasUsuario{
         return true;
     }
 
+    /**
+     *
+     * @return
+     */
     public Object ConsultasUsuarios() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

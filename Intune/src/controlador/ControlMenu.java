@@ -7,6 +7,10 @@ import vista.FrmMenuP;
 import vista.FrmProductos;
 import vista.FrmUsuarios;
 
+/**
+ *
+ * @author peace
+ */
 public class ControlMenu implements ActionListener {
 
     FrmUsuarios vUsua = new FrmUsuarios();
@@ -14,6 +18,13 @@ public class ControlMenu implements ActionListener {
     FrmMarcas vMarc = new FrmMarcas();
     FrmMenuP vMnup = new FrmMenuP();
 
+    /**
+     *
+     * @param vUsua
+     * @param vProd
+     * @param vMarc
+     * @param vMnup
+     */
     public ControlMenu(FrmUsuarios vUsua, FrmProductos vProd, FrmMarcas vMarc, FrmMenuP vMnup) {
         this.vUsua = vUsua;
         this.vProd = vProd;

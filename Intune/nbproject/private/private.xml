@@ -3,15 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/modelo/ConsultasProducto.java</file>
-            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/vista/FrmProductos.java</file>
-            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/modelo/MarcaVO.java</file>
-            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/modelo/TipoUsuarioVO.java</file>
-            <file>file:/C:/Users/Susana%20Gonzalez/OneDrive/Documentos/CarreraJava/Final/ProyectoFinalIntecap/Intune/src/controlador/ControladorProducto.java</file>
-=======
-            <file>file:/C:/Users/peace/Desktop/proyectofinaljavayandroid/ProyectoFinalIntecap/Intune/src/controlador/ControladorUsuario.java</file>
->>>>>>> 697e6e7f13dd1405edbaddf8c1312c23105cf644
+            <file>file:/C:/Users/peace/Desktop/proyectofinaljavayandroid/ProyectoFinalIntecap/Intune/src/controlador/ControladorProducto.java</file>
+            <file>file:/C:/Users/peace/Desktop/proyectofinaljavayandroid/ProyectoFinalIntecap/Intune/src/intune/Intune.java</file>
         </group>
     </open-files>
 </project-private>

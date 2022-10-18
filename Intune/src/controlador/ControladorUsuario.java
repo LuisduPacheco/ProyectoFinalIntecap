@@ -18,6 +18,10 @@ import modelo.UsuarioDAO;
 import modelo.UsuarioVO;
 import vista.FrmUsuarios;
 
+/**
+ *
+ * @author peace
+ */
 public class ControladorUsuario implements ActionListener, MouseListener, WindowListener, ItemListener {
 
     FrmUsuarios vUsua = new FrmUsuarios();
@@ -26,6 +30,14 @@ public class ControladorUsuario implements ActionListener, MouseListener, Window
     UsuarioDAO uDao = new UsuarioDAO();
     TipoUsuairoDAO tUdAo = new TipoUsuairoDAO();
 
+    /**
+     *
+     * @param vUsua
+     * @param uVo
+     * @param uDao
+     * @param tUvO
+     * @param tUdAo
+     */
     public ControladorUsuario(FrmUsuarios vUsua, UsuarioVO uVo, UsuarioDAO uDao, TipoUsuarioVO tUvO, TipoUsuairoDAO tUdAo) {
         this.vUsua = vUsua;
         this.uVo = uVo;
@@ -43,6 +55,11 @@ public class ControladorUsuario implements ActionListener, MouseListener, Window
     }
 
     //este metodo muestra los datos de la tabla
+
+    /**
+     *
+     * @param tblUsuarios
+     */
     public void mostTabUsuarios(JTable tblUsuarios) {
         DefaultTableModel m = new DefaultTableModel() {
             @Override
@@ -77,8 +94,7 @@ public class ControladorUsuario implements ActionListener, MouseListener, Window
             uVo.setCodigoUsuario(vUsua.txtUsuarioU.getText());
             uVo.setClaveUsuario(vUsua.txtPasswordU.getText());
             uVo.setIdTipoUsuario(Integer.parseInt(this.vUsua.txtTipoU.getText()));
-            uVo.setEstadoUsuario(Integer.parseInt(this.vUsua.txtEstadoU.getText()));
-            //validando para no permitir usuarios repetidos 
+            uVo.setEstadoUsuario(Integer.parseInt(this.vUsua.txtEstadoU.getText()));           
 
             if (uDao.insertarUsuario(uVo) == true) {
                 vUsua.jopMensajeU.showMessageDialog(vUsua, "Usuario ingresado correctamente");
@@ -87,7 +103,8 @@ public class ControladorUsuario implements ActionListener, MouseListener, Window
                 this.vUsua.txtUsuarioU.setText("");
                 this.vUsua.txtPasswordU.setText("");
                 this.vUsua.txtTipoU.setText("");
-                this.vUsua.txtEstadoU.setText("");
+                this.vUsua.txtEstadoU.setText("");                
+                mostTabUsuarios(vUsua.tblUsuarios);
             } else {
                 vUsua.jopMensajeU.showMessageDialog(vUsua, "No se realizó porque el usuario ya existe");
                 this.vUsua.txtNombreU.setText("");

@@ -19,6 +19,10 @@ import vista.FrmProductos;
 import modelo.MarcaDAO;
 import modelo.MarcaVO;
 
+/**
+ *
+ * @author peace
+ */
 public class ControladorProducto implements ActionListener, MouseListener,ItemListener {
     FrmProductos vProd = new FrmProductos();
     ProductoDAO pDAO = new ProductoDAO();
@@ -26,7 +30,15 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
     MarcaDAO mDAO = new MarcaDAO();
     MarcaVO mVO = new MarcaVO();
     
-     public ControladorProducto(FrmProductos vProd, ProductoDAO pDAO, ProductoVO pVO,MarcaDAO mDAO,MarcaVO mVO){
+    /**
+     *
+     * @param vProd
+     * @param pDAO
+     * @param pVO
+     * @param mDAO
+     * @param mVO
+     */
+    public ControladorProducto(FrmProductos vProd, ProductoDAO pDAO, ProductoVO pVO,MarcaDAO mDAO,MarcaVO mVO){
         this.vProd = vProd;
         this.pDAO = pDAO;
         this.pVO = pVO;
@@ -41,6 +53,10 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
         this.vProd.cbxMarcasP.addItemListener(this);
     }
     
+    /**
+     *
+     * @param tablaDatos
+     */
     public void LlenarTabla(JTable tablaDatos){
         DefaultTableModel modeloTabla = new DefaultTableModel(){
         
@@ -69,6 +85,9 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
         }
     }
     
+    /**
+     *
+     */
     public void limpliarRegistro(){ 
         vProd.txtIdProducto.setText("");
         vProd.txtDescripP.setText("");
@@ -79,6 +98,9 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
         vProd.txtMarcaP.requestFocus();
     }
     
+    /**
+     *
+     */
     public void insertarRegistro(){
 
         pVO.setDescripcionProducto(vProd.txtDescripP.getText());
@@ -94,6 +116,9 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
         }
     }
     
+    /**
+     *
+     */
     public void modificarRegistro(){
         pVO.setIdProducto(Integer.parseInt(vProd.txtIdProducto.getText()));
         pVO.setDescripcionProducto(vProd.txtDescripP.getText());
@@ -110,6 +135,9 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
         }
     }
     
+    /**
+     *
+     */
     public void eliminarRegistro(){
         pVO.setIdProducto(Integer.parseInt(vProd.txtIdProducto.getText()));
         boolean respuesta=pDAO.eliminarProducto(pVO);
@@ -121,6 +149,9 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
      
     }
     
+    /**
+     *
+     */
     public void mostrarRegistro(){
         pVO.setIdProducto(Integer.parseInt(vProd.txtIdProducto.getText()));
         pVO=pDAO.mostrarProducto(pVO);
@@ -132,6 +163,9 @@ public class ControladorProducto implements ActionListener, MouseListener,ItemLi
         vProd.txtMarcaP.requestFocus();     
     }
     
+    /**
+     *
+     */
     public void llenaMarca(){
         MarcaDAO mDAO = new MarcaDAO();
         ArrayList<MarcaVO> info = mDAO.consultarMarca();

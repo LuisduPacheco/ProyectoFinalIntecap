@@ -5,8 +5,16 @@ import conexion.Conector;
 import java.sql.ResultSet;
 import java.util.ArrayList; 
 
+/**
+ *
+ * @author zoila, luis, gerardo y balvy
+ */
 public class TipoUsuairoDAO implements ConsultasTipoUsuario{
 
+    /**
+     *
+     * @return
+     */
     @Override
     public ArrayList<TipoUsuarioVO> consultarTipoUsuario() {
         Conector c = new Conector();
